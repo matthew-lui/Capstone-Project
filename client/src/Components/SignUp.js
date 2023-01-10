@@ -24,7 +24,7 @@ let navigate = useNavigate();
       body: JSON.stringify({
         username,
         password,
-        // password_confirmation: passwordConfirmation,
+        password_confirmation: passwordConfirmation,
         profile_pic: profile_pic,
       }),
     }).then((r) => {
@@ -89,9 +89,9 @@ let navigate = useNavigate();
 
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
 
-        {/* {errors.map((err) => (
+        {errors.map((err) => (
           <error key={err}>{err}</error>
-        ))} */}
+        ))}
 
     </form>
   );
