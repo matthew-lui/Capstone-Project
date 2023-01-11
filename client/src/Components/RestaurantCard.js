@@ -15,15 +15,15 @@ function RestaurantCard({restaurant, handleDeleteRestaurant}) {
     //     })
     // }
     return (
-        <div>
-            <div>
-                <img className="restaurant-image" src={restaurant.image_url} alt={restaurant.business_name}/>
+        <div class="card">
+            <div class="card_header">
+                <img className="card_image" src={restaurant.image_url} alt={restaurant.business_name} width="600" />
                 <h3>{restaurant.business_name}</h3>
             </div>
-            <ul className="list-group">
-                <li>{restaurant.address}</li>
-                <li>{restaurant.phone_number}</li>
-                <li>{restaurant.likes}</li>
+            <ul className="card_body">
+                <h2>{restaurant.address}</h2>
+                <h3>{restaurant.phone_number}</h3>
+                <h4>{restaurant.likes}</h4>
 
             </ul>
             <Link to = {`/restaurants/${restaurant.id}`}>

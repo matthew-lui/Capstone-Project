@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {useParams} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function CreateRestaurant({restaurants, setRestaurants, user}) {
     // console.log(prop)
-
+    let navigate = useNavigate()
     const [showForm, setShowForm] = useState(false)
    
     let initialFormState = {
@@ -20,7 +21,6 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
         e.preventDefault()
         const newRestaurant ={
             user_id: user.id,
-            favorite_id: id,
             business_name: formData.business_name,
             address: formData.address,
             phone_number: formData.phone_number,
@@ -34,7 +34,8 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
         }).then(response => response.json())
             .then(data => {
                 setFormData(initialFormState)
-                setRestaurants({...restaurants, favorites:[...restaurants.favorites, data]})
+                setRestaurants({...restaurants, restaurants:[...restaurants.favorites, data]})
+                navigate("/")
                 setShowForm(!showForm)
             })
 

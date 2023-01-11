@@ -22,3 +22,8 @@ code {
   height: 70px;
   width: 70px;
 }
+
+.show-image {
+  height: 300px;
+  width: 300px;
+}
