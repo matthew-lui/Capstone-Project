@@ -27,6 +27,7 @@ function NavBar({user}) {
           <>
         </>
           <>
+          <NavLink className="navlink" to="/create-restaurant">Create Restaurant</NavLink>
           <NavLink className="navlink" to="/userlogin">Login</NavLink>
           <NavLink className="navlink" to="/signup">Sign Up</NavLink>
           <NavLink className="navlink" to="/logout">Logout</NavLink> 

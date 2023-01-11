@@ -1,9 +1,10 @@
 import React from 'react';
+import RestaurantContainer from './RestaurantContainer';
 
-function Home(props) {
+function Home({restaurants, setRestaurants, handleDeleteRestaurant}) {
     return (
         <div>
-            
+            <RestaurantContainer restaurants={restaurants} setRestaurants={setRestaurants} handleDeleteRestaurant={handleDeleteRestaurant}/>
         </div>
     );
 }
