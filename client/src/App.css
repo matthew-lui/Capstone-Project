@@ -145,3 +145,7 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
   flex-direction: column
 }
 
+.favorite-restaurant-image{
+  width: 200px;
+  height: 200px;
+}

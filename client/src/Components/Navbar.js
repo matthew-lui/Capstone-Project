@@ -1,12 +1,22 @@
-// import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 // import { useState } from 'react';
 
 
 function NavBar({user}) {
 
-  // const [loggedIn, setLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
  
+  // useEffect(() => {
+  //   // check if user is logged in
+  //   const checkLoggedIn = async () => {
+  //     const response = await fetch('/api/check-login');
+  //     const data = await response.json();
+  //     setIsLoggedIn(data.isLoggedIn);
+  //   };
+  //   checkLoggedIn();
+  // }, []);
+
   
     return (
       <>
@@ -21,9 +31,11 @@ function NavBar({user}) {
     ): (
       <div></div>)}
           </div>
+          {/* <NavLink to="/">Home</NavLink>
+      {isLoggedIn && <NavLink to="/profile">Profile</NavLink>} */}
           <nav className='navMenu'>
           <NavLink className="navlink" to="/">Home</NavLink>
-          <NavLink className="navlink" to="/restaurants">Restaurants</NavLink>
+          <NavLink className="navlink" to="/myfavorites">My Favorites</NavLink>
           <>
         </>
           <>

@@ -17,12 +17,15 @@ import FavoritesContainer from './Components/FavoritesContainer';
 function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
+  const [favorites, setFavorites] =useState([])
+  console.log(user)
 
   useEffect(() => {
     async function fetchData() {
       const response1 = await fetch('/me');
       const user = await response1.json();
       setUser(user);
+      setFavorites(user.restaurants)
 
       const response2 = await fetch('/restaurants');
       const restaurants = await response2.json();
@@ -32,10 +35,16 @@ function App() {
   }, []);
 
 
-  function handleDeleteRestaurant(id) {
-    const updateExperienceArray = restaurants.filter(restaurant => restaurant.id !== id)
-    setRestaurants(updateExperienceArray)
+  function handleDeleteFavorite(id) {
+    const updateFavoriteArray = favorites.filter(favorite => favorite.id !== id)
+    setFavorites(updateFavoriteArray)
   }
+
+  function handleDeleteRestaurant(id) {
+    const updateRestaurantArray = restaurants.filter(restaurant => restaurant.id !== id)
+    setRestaurants(updateRestaurantArray)
+  }
+
 
 
   return (
@@ -45,7 +54,7 @@ function App() {
         <Route exact path="/" element={<Home restaurants={restaurants} setRestaurants={setRestaurants} handleDeleteRestaurant={handleDeleteRestaurant}/>} />
         <Route exact path="/signup" element={<SignUp onSignUp={setUser}/>}/>
         <Route exact path="/userlogin" element={<UserLogin onLogin={setUser}/>}/>
-        <Route path="/myfavorites" element={<FavoritesContainer restaurants={restaurants} setRestaurants={setRestaurants}/>}/>
+        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites} handleDeleteFavorite={handleDeleteFavorite}/>}/>
         <Route path="/create-restaurant" element={<CreateRestaurant restaurants={restaurants} setRestaurants={setRestaurants} user={user}/>}/>
         <Route path="/restaurants/:id" element= {<RestaurantShow user={user}/>}/> 
         <Route path="/logout" element={<LogoutPage user={user} setUser = {setUser}/>}/>
