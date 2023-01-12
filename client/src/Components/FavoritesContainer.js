@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 const headers = {
@@ -8,6 +8,7 @@ const headers = {
 
 function FavoritesContainer({favorites=[]}, handleDeleteFavorite) {
     console.log(favorites)
+    const [favoriteData, setFavoriteData] = useState(favorites)
 
        function handleDelete(id){
        handleDeleteFavorite(id)
@@ -27,7 +28,7 @@ function FavoritesContainer({favorites=[]}, handleDeleteFavorite) {
                          <h3>{restaurant.phone_number}</h3>
                          <h3>{restaurant.likes}</h3>
                          <img className="favorite-restaurant-image"src={restaurant.image_url} alt={restaurant.business_name} /> 
-                         <button onClick={()=>handleDelete(favorites.id)}>Delete Favorite</button>
+                         <button onClick={()=>handleDelete(favoriteData.id)}>Delete Favorite</button>
                         </div>})
               }
                                                                               
