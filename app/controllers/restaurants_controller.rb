@@ -54,3 +54,5 @@ class RestaurantsController < ApplicationController
         params.permit(:likes)
     end
 end
+
+## write a method that will sort rank from lowest to highest

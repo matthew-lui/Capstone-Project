@@ -5,9 +5,9 @@ const headers = {
         "Content-Type" : "application/json"}
 
 
-function RestaurantCard({restaurant, handleDeleteRestaurant}) {
+function RestaurantCard({restaurant, setFavorites, handleDeleteRestaurant}) {
 
-    const [restaurantData, setRestaurantData] = useState(restaurant.favorite)
+    const [restaurantData, setRestaurantData] = useState(restaurant)
     function handleAddFavorite(){
         fetch("/favorites",{
             method: "POST",
@@ -15,7 +15,7 @@ function RestaurantCard({restaurant, handleDeleteRestaurant}) {
             body: JSON.stringify({restaurant_id: restaurant.id})
         }).then(response => {
             if(response.ok){
-                response.json().then(data => setRestaurantData(data))
+                response.json().then(data => setFavorites(data))
             }
         })
 

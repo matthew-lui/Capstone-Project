@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route exact path="/" element={<Home restaurants={restaurants} setRestaurants={setRestaurants} handleDeleteRestaurant={handleDeleteRestaurant}/>} />
+        <Route exact path="/" element={<Home restaurants={restaurants} setRestaurants={setRestaurants} handleDeleteRestaurant={handleDeleteRestaurant} favorites={favorites} setFavorites={setFavorites}/>} />
         <Route exact path="/signup" element={<SignUp onSignUp={setUser}/>}/>
         <Route exact path="/userlogin" element={<UserLogin onLogin={setUser}/>}/>
         <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites} handleDeleteFavorite={handleDeleteFavorite}/>}/>
