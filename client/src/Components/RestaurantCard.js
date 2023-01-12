@@ -7,13 +7,13 @@ const headers = {
 
 function RestaurantCard({restaurant, handleDeleteRestaurant}) {
        
-    // function handleDelete(id){
-    //    handleDeleteRestaurant(id)
-    //     fetch(`restaurants/${id}`,{
-    //         method: 'DELETE',
-    //         headers,
-    //     })
-    // }
+    function handleDelete(id){
+       handleDeleteRestaurant(id)
+        fetch(`restaurants/${id}`,{
+            method: 'DELETE',
+            headers,
+        })
+    }
     return (
         <div class="card">
             <div class="card_header">
@@ -29,7 +29,7 @@ function RestaurantCard({restaurant, handleDeleteRestaurant}) {
             <Link to = {`/restaurants/${restaurant.id}`}>
         <button className='fancy-button'>More Info</button>
             </Link>
-                {/* <button onClick={()=>handleDelete(restaurant.id)}>Delete</button> */}
+                <button onClick={()=>handleDelete(restaurant.id)}>Delete</button>
             
         </div>
     );

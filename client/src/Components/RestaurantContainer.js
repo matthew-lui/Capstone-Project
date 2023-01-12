@@ -1,11 +1,11 @@
 import React from 'react';
 import RestaurantCard from './RestaurantCard';
 
-function RestaurantContainer({restaurants}) {
+function RestaurantContainer({restaurants, handleDeleteRestaurant}) {
     return (
-        <div>
+        <div className="restaurant-map-container">
             {
-                restaurants.map(restaurant => <RestaurantCard key={restaurant.id} restaurant={restaurant}/>)
+                restaurants.map(restaurant => <RestaurantCard key={restaurant.id} restaurant={restaurant} handleDeleteRestaurant={handleDeleteRestaurant}/>)
             }
         </div>
     );

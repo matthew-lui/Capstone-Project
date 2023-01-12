@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +7,16 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
     // console.log(prop)
     let navigate = useNavigate()
     const [showForm, setShowForm] = useState(false)
+
+    useEffect(() => {
+        fetch("/restaurants").then((res) => {
+          if (res.ok) {
+            res.json().then((user) => {
+              setRestaurants(user);
+            });
+          }
+        });
+      }, [user]);
    
     let initialFormState = {
         business_name: "",
@@ -14,6 +24,7 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
         phone_number: "",
         website: "",
         image_url: "",
+        
     }
     const [formData, setFormData] = useState(initialFormState);
     const {id} =useParams()
@@ -34,7 +45,7 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
         }).then(response => response.json())
             .then(data => {
                 setFormData(initialFormState)
-                setRestaurants({...restaurants, restaurants:[...restaurants.favorites, data]})
+                setRestaurants([data, ...restaurants])
                 navigate("/")
                 setShowForm(!showForm)
             })
@@ -52,7 +63,7 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
     return (
         <div>
             <div>
-            <button className="create-button" id="create-restaurant-button" onClick={() => setShowForm(!showForm)}>Login or Sign up to Create an Restaurant</button>
+            <button className="create-button" id="create-restaurant-button" onClick={() => setShowForm(!showForm)}>Create a Restaurant</button>
             </div>
         {showForm ? 
         (<div>
