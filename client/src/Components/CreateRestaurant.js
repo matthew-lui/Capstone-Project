@@ -8,15 +8,15 @@ function CreateRestaurant({restaurants, setRestaurants, user}) {
     let navigate = useNavigate()
     const [showForm, setShowForm] = useState(false)
 
-    useEffect(() => {
-        fetch("/restaurants").then((res) => {
-          if (res.ok) {
-            res.json().then((user) => {
-              setRestaurants(user);
-            });
-          }
-        });
-      }, [user]);
+    // useEffect(() => {
+    //     fetch("/restaurants").then((res) => {
+    //       if (res.ok) {
+    //         res.json().then((user) => {
+    //           setRestaurants(user);
+    //         });
+    //       }
+    //     });
+    //   }, [user]);
    
     let initialFormState = {
         business_name: "",
