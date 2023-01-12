@@ -5,9 +5,9 @@ const headers = {
         "Content-Type" : "application/json"}
 
 
-function RestaurantCard({restaurant, setRestaurant, handleDeleteRestaurant}) {
-    const [errors, setErrors] = useState(null);
+function RestaurantCard({restaurant, handleDeleteRestaurant}) {
 
+    const [restaurantData, setRestaurantData] = useState(restaurant)
     function handleAddFavorite(){
         fetch("/favorites",{
             method: "POST",
@@ -22,7 +22,17 @@ function RestaurantCard({restaurant, setRestaurant, handleDeleteRestaurant}) {
     
     }
 
-   
+    function updateLikes() {
+        fetch(`restaurants/${restaurant.id}`, {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ likes: ++restaurant.likes }),
+        }).then((r) =>r.json())
+        .then(((data)=>{
+            setRestaurantData({...data})
+        }))
+    }
+
     // function handleDelete(id){
     //    handleDeleteRestaurant(id)
     //     fetch(`restaurants/${id}`,{
@@ -45,6 +55,7 @@ function RestaurantCard({restaurant, setRestaurant, handleDeleteRestaurant}) {
             <Link to = {`/restaurants/${restaurant.id}`}>
         <button className='fancy-button'>More Info</button>
             </Link>
+            <button className= 'fancy-button'onClick={()=>updateLikes(restaurantData)}>Like</button>
             <button onClick={handleAddFavorite}>add to favorites</button>
                 {/* <button onClick={()=>handleDelete(restaurant.id)}>Delete</button> */}
             
