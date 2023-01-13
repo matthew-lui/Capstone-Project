@@ -17,7 +17,7 @@ import FavoritesContainer from './Components/FavoritesContainer';
 function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
-  const [favorites, setFavorites] =useState([])
+  const [favorites, setFavorites] = useState([])
   console.log(user)
 
   useEffect(() => {
@@ -35,11 +35,6 @@ function App() {
   }, []);
 
 
-  function handleDeleteFavorite(id) {
-    const updateFavoriteArray = favorites.filter(favorite => favorite.id !== id)
-    setFavorites(updateFavoriteArray)
-  }
-
   function handleDeleteRestaurant(id) {
     const updateRestaurantArray = restaurants.filter(restaurant => restaurant.id !== id)
     setRestaurants(updateRestaurantArray)
@@ -54,7 +49,7 @@ function App() {
         <Route exact path="/" element={<Home restaurants={restaurants} setRestaurants={setRestaurants} handleDeleteRestaurant={handleDeleteRestaurant} favorites={favorites} setFavorites={setFavorites}/>} />
         <Route exact path="/signup" element={<SignUp onSignUp={setUser}/>}/>
         <Route exact path="/userlogin" element={<UserLogin onLogin={setUser}/>}/>
-        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites} handleDeleteFavorite={handleDeleteFavorite}/>}/>
+        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites}/>}/>
         <Route path="/create-restaurant" element={<CreateRestaurant restaurants={restaurants} setRestaurants={setRestaurants} user={user}/>}/>
         <Route path="/restaurants/:id" element= {<RestaurantShow user={user}/>}/> 
         <Route path="/logout" element={<LogoutPage user={user} setUser = {setUser}/>}/>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :favorites, only: :create
+  resources :favorites, only: [:destroy, :create]
   resources :restaurants, only: [:index, :destroy, :update, :show, :create]
   resources :posts, only: [:index, :destroy, :update, :show, :create]
   
