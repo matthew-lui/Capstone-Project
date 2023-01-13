@@ -1,32 +1,28 @@
 import React, { useState } from "react";
+// import {useParams} from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const headers = {
-  Accepts: "application/json",
-  "Content-Type": "application/json",
-};
+// const headers = {
+//     Accepts: "application/json",
+//     "Content-Type": "application/json",
+//   };
 
-function FavoritesContainer({ favorites = [] }) {
-  // console.log(favorites)
-  const [favoriteData, setFavoriteData] = useState(favorites);
+function FavoritesContainer({ favorites = [], favoritesData, handleDelete }) {
+  //   function handleDeleteFavorite(id) {
+  //     console.log(id);
+  //     const updateFavoriteArray = favoriteData.filter(
+  //       (favorite) => favorite.id !== id
+  //     );
+  //     setFavoriteData(updateFavoriteArray);
+  //   }
 
-  function handleDeleteFavorite(id) {
-    console.log(id);
-    const updateFavoriteArray = favoriteData.filter(
-      (favorite) => favorite.id !== id
-    );
-    setFavoriteData(updateFavoriteArray);
-  }
-
-  function handleDelete(id) {
-    handleDeleteFavorite(id);
-    fetch(`/favorites/${id}`, {
-      method: "DELETE",
-      headers,
-    });
-  }
-  //map favorites and return a restaurant card
-
-  // write a function to map out favorites
+  //   function handleDelete(id) {
+  //     handleDeleteFavorite(id);
+  //     fetch(`/favorites/${id}`, {
+  //       method: "DELETE",
+  //       headers,
+  //     });
+  //   }
 
   return (
     <div className="restaurant-favorite-container">
@@ -45,7 +41,10 @@ function FavoritesContainer({ favorites = [] }) {
                 src={restaurant.image_url}
                 alt={restaurant.business_name}
               />
-              <button onClick={() => handleDelete(favoriteData.id)}>
+              <Link to={`/restaurants/${restaurant.id}`}>
+                <button className="fancy-button">More Info</button>
+              </Link>
+              <button onClick={() => handleDelete(favoritesData.id)}>
                 Delete Favorite
               </button>
             </div>

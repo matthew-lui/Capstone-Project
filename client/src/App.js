@@ -12,13 +12,14 @@ import NotFound from './Components/NotFound';
 import CreateRestaurant from './Components/CreateRestaurant';
 import FavoritesContainer from './Components/FavoritesContainer';
 
-
-
+const headers = {
+  Accepts: "application/json",
+  "Content-Type": "application/json",
+};
 function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([])
-  console.log(user)
 
   useEffect(() => {
     async function fetchData() {
@@ -40,21 +41,34 @@ function App() {
     setRestaurants(updateRestaurantArray)
   }
 
-
+  function handleDeleteFavorite(id) {
+        console.log(id);
+        const updateFavoriteArray = favorites.filter(
+          (favorite) => favorite.id !== id
+        );
+        setFavorites(updateFavoriteArray);
+      }
+    
+  function handleDelete(id) {
+    handleDeleteFavorite(id);
+    fetch(`/favorites/${id}`, {
+      method: "DELETE",
+      headers,
+    });
+  }
 
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route exact path="/" element={<Home restaurants={restaurants} setRestaurants={setRestaurants} handleDeleteRestaurant={handleDeleteRestaurant} favorites={favorites} setFavorites={setFavorites}/>} />
+        <Route exact path="/" element={<Home restaurants={restaurants} handleDeleteRestaurant={handleDeleteRestaurant} favorites={favorites} setFavorites={setFavorites}/>} />
         <Route exact path="/signup" element={<SignUp onSignUp={setUser}/>}/>
         <Route exact path="/userlogin" element={<UserLogin onLogin={setUser}/>}/>
-        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites}/>}/>
+        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites} favoritesData={favorites}  handleDelete={handleDelete}/>}/>
         <Route path="/create-restaurant" element={<CreateRestaurant restaurants={restaurants} setRestaurants={setRestaurants} user={user}/>}/>
         <Route path="/restaurants/:id" element= {<RestaurantShow user={user}/>}/> 
         <Route path="/logout" element={<LogoutPage user={user} setUser = {setUser}/>}/>
         <Route path="*" element={<NotFound />} />
-
       </Routes>
      
     </div>

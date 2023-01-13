@@ -5,7 +5,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function RestaurantCard({ restaurant, setFavorites, handleDeleteRestaurant }) {
+function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteRestaurant }) {
   const [restaurantData, setRestaurantData] = useState(restaurant);
   function handleAddFavorite() {
     fetch("/favorites", {
@@ -63,7 +63,7 @@ function RestaurantCard({ restaurant, setFavorites, handleDeleteRestaurant }) {
       >
         Like
       </button>
-      <button onClick={handleAddFavorite}>add to favorites</button>
+      <button onClick={()=>handleAddFavorite(favorites)}>add to favorites</button>
       {/* <button onClick={()=>handleDelete(restaurant.id)}>Delete</button> */}
     </div>
   );
