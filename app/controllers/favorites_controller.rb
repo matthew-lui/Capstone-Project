@@ -9,7 +9,9 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-        favorite = Favorite.find_by_id(params[:id])
+        
+        # favorite = Favorite.find_by_id(params[:id])
+        favorite = Favorite.where(restaurant_id: params[:restaurant][:id], user_id: params[:user][:id]).first
         if favorite
             favorite.destroy
             head :no_content

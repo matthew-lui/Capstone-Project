@@ -17,7 +17,7 @@ function NavBar({ user }) {
 
   return (
     <>
-      <div class="animation start-home">
+      <div className="animation start-home">
         {user ? (
           <div className="profile_container">
             <img

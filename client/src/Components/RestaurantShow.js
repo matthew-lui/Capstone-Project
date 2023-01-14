@@ -20,18 +20,18 @@ function RestaurantShow({ user }) {
       });
   }, [id]);
 
-  function handleDeleteComment(id) {
-    const updateCommentArray = restaurant.posts.filter(comment => comment.id !== id)
-    setRestaurant({...restaurant, posts: updateCommentArray})
-  }
+//   function handleDeleteComment(id) {
+//     const updateCommentArray = restaurant.posts.filter(comment => comment.id !== id)
+//     setRestaurant({...restaurant, posts: updateCommentArray})
+//   }
 
-function handleDelete(id){
-    handleDeleteComment(id)
-    fetch(`/posts/${id}`,{
-        method: 'DELETE',
-        headers,
-    })
-}
+// function handleDelete(id){
+//     handleDeleteComment(id)
+//     fetch(`/posts/${id}`,{
+//         method: 'DELETE',
+//         headers,
+//     })
+// }
 
 
 function updateCommentLikes(post) {
@@ -45,6 +45,9 @@ function updateCommentLikes(post) {
         setRestaurant({ ...restaurant, posts: newPostArray });
     });
 }
+
+//render username from post table
+
 
   return (
     <div>
@@ -81,8 +84,12 @@ function updateCommentLikes(post) {
                 </a>
               </div>
               <div>
-              {restaurant && restaurant.posts.map(post => <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p>
-                  <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button> <button className='stat-button' onClick={()=>handleDelete(post.id)}>DELETE</button> 
+
+              {restaurant && restaurant.posts.map(post => 
+                    <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p> 
+                  <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
+                 {/* if a a post's user_id == current user render a delete button */}
+                 {/* delete function should send the post */}
                 </div>)}
               </div>
             </div>
