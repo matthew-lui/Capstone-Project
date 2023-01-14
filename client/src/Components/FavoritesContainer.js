@@ -7,18 +7,12 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function FavoritesContainer({
-  user,
-  favorites = [],
-  setRestaurant
-}) {
-
+function FavoritesContainer({ user, favorites = [], setRestaurant }) {
   //console.log(favorites);
 
-
   function handleDelete(user, restaurant) {
-    setRestaurant()
- 
+
+
     fetch(`/favorites/delete`, {
       method: "DELETE",
       headers,

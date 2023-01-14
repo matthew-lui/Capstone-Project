@@ -25,13 +25,13 @@ function RestaurantShow({ user }) {
 //     setRestaurant({...restaurant, posts: updateCommentArray})
 //   }
 
-// function handleDelete(id){
-//     handleDeleteComment(id)
-//     fetch(`/posts/${id}`,{
-//         method: 'DELETE',
-//         headers,
-//     })
-// }
+function handleDelete(id){
+    handleDeleteComment(id)
+    fetch(`/posts/${id}`,{
+        method: 'DELETE',
+        headers,
+    })
+}
 
 
 function updateCommentLikes(post) {
@@ -90,6 +90,7 @@ function updateCommentLikes(post) {
                   <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}
+                 {post.user.id == user.id ? <button className='stat-button' onClick={()=>handleDelete(post.id)}>DELETE</button> : null}
                 </div>)}
               </div>
             </div>
