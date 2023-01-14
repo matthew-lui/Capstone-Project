@@ -86,7 +86,7 @@ function updateCommentLikes(post) {
                 </div>)}
               </div>
             </div>
-            <CommentForm user={user}/>
+            <CommentForm user={user} restaurant={restaurant} setRestarant={setRestaurant}/>
           </div>
         )}
       </div>

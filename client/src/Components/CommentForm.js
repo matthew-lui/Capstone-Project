@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function CommentForm({ user, setRestaurants, restaurants }) {
+function CommentForm({ user, setRestaurant, restaurant }) {
   let initialFormState = {
     comments: "",
   };
@@ -16,7 +16,7 @@ function CommentForm({ user, setRestaurants, restaurants }) {
       comments: formData.comments,
     };
 
-    fetch(`/restaurant/${id}`, {
+    fetch(`/restaurants/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newComment),
@@ -24,7 +24,7 @@ function CommentForm({ user, setRestaurants, restaurants }) {
       .then((response) => response.json())
       .then((data) => {
         setFormData(initialFormState);
-        setRestaurants({ ...restaurants, posts: [...restaurants.posts, data] });
+        setRestaurant({ ...restaurant, posts: [...restaurant.posts, data] });
       });
   };
   let handleChange = (e) => {
