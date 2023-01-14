@@ -1,32 +1,37 @@
 import React, { useState } from "react";
-// import {useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import { Link } from "react-router-dom";
 
-// const headers = {
-//     Accepts: "application/json",
-//     "Content-Type": "application/json",
-//   };
+const headers = {
+    Accepts: "application/json",
+    "Content-Type": "application/json",
+  };
 
-function FavoritesContainer({ favorites = [], favoritesData, handleDelete }) {
-  //   function handleDeleteFavorite(id) {
-  //     console.log(id);
-  //     const updateFavoriteArray = favoriteData.filter(
-  //       (favorite) => favorite.id !== id
-  //     );
-  //     setFavoriteData(updateFavoriteArray);
-  //   }
+function FavoritesContainer({ favorites = [], favoritesData, restaurants, handleDeleteFavorite }) {
 
-  //   function handleDelete(id) {
-  //     handleDeleteFavorite(id);
-  //     fetch(`/favorites/${id}`, {
-  //       method: "DELETE",
-  //       headers,
-  //     });
-  //   }
+    const { id } = useParams();
+
+    console.log(id)
+    const [favorite, setFavorite] = useState();
+    // function handleDeleteFavorite(id) {
+
+    // //   const updateFavoriteArray = favoriteData.filter(
+    // //     (favorite) => favorite.id !== id
+    // //   );
+    // //   setFavoriteData(updateFavoriteArray);
+    // // }
+
+    function handleDelete(id) {
+      handleDeleteFavorite(id);
+      fetch(`/restaurants/${id}`, {
+        method: "DELETE",
+        headers,
+      });
+    }
 
   return (
     <div className="restaurant-favorite-container">
-      {favorites &&
+      { 
         favorites.map((restaurant) => {
           return (
             <div className="restaurant-favorite-card">
@@ -44,7 +49,7 @@ function FavoritesContainer({ favorites = [], favoritesData, handleDelete }) {
               <Link to={`/restaurants/${restaurant.id}`}>
                 <button className="fancy-button">More Info</button>
               </Link>
-              <button onClick={() => handleDelete(favoritesData.id)}>
+              <button onClick={() => handleDelete(favorites.id)}>
                 Delete Favorite
               </button>
             </div>

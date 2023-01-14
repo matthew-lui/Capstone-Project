@@ -42,20 +42,20 @@ function App() {
   }
 
   function handleDeleteFavorite(id) {
-        console.log(id);
-        const updateFavoriteArray = favorites.filter(
-          (favorite) => favorite.id !== id
-        );
-        setFavorites(updateFavoriteArray);
-      }
+    console.log(id);
+    const updateFavoriteArray = restaurants.filter(
+      (favorite) => favorite.id !== id
+      );
+      setFavorites(updateFavoriteArray);
+    }
     
-  function handleDelete(id) {
-    handleDeleteFavorite(id);
-    fetch(`/favorites/${id}`, {
-      method: "DELETE",
-      headers,
-    });
-  }
+  // function handleDelete(id) {
+  //   handleDeleteFavorite(id);
+  //   fetch(`/favorites/${id}`, {
+  //     method: "DELETE",
+  //     headers,
+  //   });
+  // }
 
   return (
     <div className="App">
@@ -64,7 +64,7 @@ function App() {
         <Route exact path="/" element={<Home restaurants={restaurants} handleDeleteRestaurant={handleDeleteRestaurant} favorites={favorites} setFavorites={setFavorites}/>} />
         <Route exact path="/signup" element={<SignUp onSignUp={setUser}/>}/>
         <Route exact path="/userlogin" element={<UserLogin onLogin={setUser}/>}/>
-        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites} favoritesData={favorites}  handleDelete={handleDelete}/>}/>
+        <Route path="/myfavorites" element={<FavoritesContainer favorites={favorites} favoritesData={favorites}  handleDeleteFavorite={handleDeleteFavorite} restaurants={restaurants}/>}/>
         <Route path="/create-restaurant" element={<CreateRestaurant restaurants={restaurants} setRestaurants={setRestaurants} user={user}/>}/>
         <Route path="/restaurants/:id" element= {<RestaurantShow user={user}/>}/> 
         <Route path="/logout" element={<LogoutPage user={user} setUser = {setUser}/>}/>

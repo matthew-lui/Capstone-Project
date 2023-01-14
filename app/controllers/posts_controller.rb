@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
 
     def post_params
-        params.permit(:experience_id, :user_id, :comment, :likes)
+        params.permit(:restaurant_id, :user_id, :comments, :likes)
     end
 
     def likes

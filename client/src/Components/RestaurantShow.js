@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CommentForm from "./CommentForm";
+
+
+const headers = {
+    Accepts: "application/json",
+        "Content-Type" : "application/json"}
 
 function RestaurantShow({ user }) {
   const { id } = useParams();
@@ -13,6 +19,32 @@ function RestaurantShow({ user }) {
         setRestaurant({ ...data });
       });
   }, [id]);
+
+  function handleDeleteComment(id) {
+    const updateCommentArray = restaurant.posts.filter(comment => comment.id !== id)
+    setRestaurant({...restaurant, posts: updateCommentArray})
+  }
+
+function handleDelete(id){
+    handleDeleteComment(id)
+    fetch(`/posts/${id}`,{
+        method: 'DELETE',
+        headers,
+    })
+}
+
+
+function updateCommentLikes(post) {
+    fetch(`/posts/${post.id}`, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({ likes: ++post.likes }),
+    }).then((r) => r.json())
+    .then((newPost) => {
+        const newPostArray = restaurant.posts.map((p) => p.id !== newPost.id ? p : newPost);
+        setRestaurant({ ...restaurant, posts: newPostArray });
+    });
+}
 
   return (
     <div>
@@ -45,10 +77,16 @@ function RestaurantShow({ user }) {
                   target="_blank"
                 >
                   {" "}
-                  View Restaurant Website
+                  Visit Restaurant Website
                 </a>
               </div>
+              <div>
+              {restaurant && restaurant.posts.map(post => <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p>
+                  <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button> <button className='stat-button' onClick={()=>handleDelete(post.id)}>DELETE</button> 
+                </div>)}
+              </div>
             </div>
+            <CommentForm user={user}/>
           </div>
         )}
       </div>
