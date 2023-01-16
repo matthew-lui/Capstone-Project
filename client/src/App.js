@@ -31,6 +31,9 @@ function App() {
       const response2 = await fetch("/restaurants");
       const restaurants = await response2.json();
       setRestaurants(restaurants);
+
+      const response3 = await fetch("/favorites");
+
     }
     fetchData();
   }, []);
@@ -42,14 +45,15 @@ function App() {
     setRestaurants(updateRestaurantArray);
   }
 
-  // function handleDeleteFavorite(user, restaurant) {
-  //   debugger;
+  function handleDeleteFavorite(id) {
+    debugger;
     // console.log(id);
-    // const updateFavoriteArray = restaurants.filter(
-    //   (favorite) => favorite.id !== id
-    // );
-    // setFavorites(updateFavoriteArray);
-  // 
+    const updateFavoriteArray = restaurants.filter(
+      (favorite) => favorite.id !== id
+    );
+    setFavorites(updateFavoriteArray);
+  }
+  
 
   
 
@@ -82,6 +86,7 @@ function App() {
               favorites={favorites}
               favoritesData={favorites}
               user={user}
+              handleDeleteFavorite={handleDeleteFavorite}
             />
           }
         />
