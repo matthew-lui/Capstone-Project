@@ -19,8 +19,9 @@ function FavoritesContainer({ user, favorites = [], setRestaurant }) {
       body: JSON.stringify({
         user: user,
         restaurant: restaurant,
-      }),
-    });
+      }).then((r) => r.json())
+      .then(data => setRestaurant(data))
+    })
   }
 
   return (

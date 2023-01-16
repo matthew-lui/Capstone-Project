@@ -39,8 +39,8 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
   //     })
   // }
   return (
-    <div class="card">
-      <div class="card_header">
+    <div className="card">
+      <div className="card_header">
         <img
           className="card_image"
           src={restaurant.image_url}

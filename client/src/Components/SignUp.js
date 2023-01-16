@@ -45,7 +45,7 @@ let navigate = useNavigate();
   }
 
   return (
-    <form class="signup-form" onSubmit={handleSubmit}>
+    <form className="signup-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
           type="text"

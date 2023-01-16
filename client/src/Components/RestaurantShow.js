@@ -20,10 +20,10 @@ function RestaurantShow({ user }) {
       });
   }, [id]);
 
-//   function handleDeleteComment(id) {
-//     const updateCommentArray = restaurant.posts.filter(comment => comment.id !== id)
-//     setRestaurant({...restaurant, posts: updateCommentArray})
-//   }
+  function handleDeleteComment(id) {
+    const updateCommentArray = restaurant.posts.filter(comment => comment.id !== id)
+    setRestaurant({...restaurant, posts: updateCommentArray})
+  }
 
 function handleDelete(id){
     handleDeleteComment(id)

@@ -32,7 +32,7 @@ function App() {
       const restaurants = await response2.json();
       setRestaurants(restaurants);
 
-      const response3 = await fetch("/favorites");
+      // const response3 = await fetch("/favorites");
 
     }
     fetchData();
