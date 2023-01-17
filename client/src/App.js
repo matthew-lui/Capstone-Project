@@ -45,9 +45,9 @@ function App() {
     setRestaurants(updateRestaurantArray);
   }
 
-  function handleDeleteFavorite(id) {
-    debugger;
-    // console.log(id);
+  function handleDeleteFavorite(restaurants, favorites, id) {
+    console.log(favorites, restaurants)
+    
     const updateFavoriteArray = restaurants.filter(
       (favorite) => favorite.id !== id
     );
@@ -86,7 +86,7 @@ function App() {
               favorites={favorites}
               favoritesData={favorites}
               user={user}
-              handleDeleteFavorite={handleDeleteFavorite}
+              // handleDeleteFavorite={handleDeleteFavorite}
             />
           }
         />

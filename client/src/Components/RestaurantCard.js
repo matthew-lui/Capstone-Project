@@ -31,13 +31,13 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
       });
   }
 
-  // function handleDelete(id){
-  //    handleDeleteRestaurant(id)
-  //     fetch(`restaurants/${id}`,{
-  //         method: 'DELETE',
-  //         headers,
-  //     })
-  // }
+  function handleDelete(id){
+     handleDeleteRestaurant(id)
+      fetch(`restaurants/${id}`,{
+          method: 'DELETE',
+          headers,
+      })
+  }
   return (
     <div className="card">
       <div className="card_header">
@@ -64,7 +64,7 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
         Like
       </button>
       <button onClick={()=>handleAddFavorite(favorites)}>add to favorites</button>
-      {/* <button onClick={()=>handleDelete(restaurant.id)}>Delete</button> */}
+      <button onClick={()=>handleDelete(restaurant.id)}>Delete</button>
     </div>
   );
 }
