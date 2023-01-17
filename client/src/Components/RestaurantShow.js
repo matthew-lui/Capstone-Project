@@ -11,6 +11,7 @@ function RestaurantShow({ user }) {
   const { id } = useParams();
 
   const [restaurant, setRestaurant] = useState();
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch(`/restaurants/${id}`)
@@ -46,7 +47,7 @@ function updateCommentLikes(post) {
     });
 }
 
-//render username from post table
+
 
 
   return (
