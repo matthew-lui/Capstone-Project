@@ -14,7 +14,7 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
       body: JSON.stringify({ restaurant_id: restaurant.id }),
     }).then((response) => {
       if (response.ok) {
-        response.json().then((data) => setFavorites(data));
+        response.json().then((data) => setFavorites([data, ...favorites]));
       }
     });
   }
@@ -63,9 +63,9 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
       >
         Like
       </button>
-      {/* <Link to={"/myfavorites/"}> */}
+      <Link to={"/myfavorites/"}>
       <button className="add-favorite" onClick={()=>handleAddFavorite(...favorites)}>add to favorites</button>
-      {/* </Link> */}
+      </Link>
       <button className="delete-restaurant" onClick={()=>handleDelete(restaurant.id)}>Delete</button>
     </div>
   );
