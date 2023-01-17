@@ -63,9 +63,9 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
       >
         Like
       </button>
-      <Link to={"/myfavorites/"}>
-      <button className="add-favorite" onClick={()=>handleAddFavorite(favorites)}>add to favorites</button>
-      </Link>
+      {/* <Link to={"/myfavorites/"}> */}
+      <button className="add-favorite" onClick={()=>handleAddFavorite(...favorites)}>add to favorites</button>
+      {/* </Link> */}
       <button className="delete-restaurant" onClick={()=>handleDelete(restaurant.id)}>Delete</button>
     </div>
   );

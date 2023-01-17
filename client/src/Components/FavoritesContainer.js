@@ -8,8 +8,9 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function FavoritesContainer({ user, favorites = [], setRestaurant, handleDeleteFavorite }) {
-  //console.log(favorites);
+function FavoritesContainer({ user, favorites =[], handleDeleteFavorite }) {
+  
+  // console.log(favorites)
 
   function handleDelete(user, restaurant) {
     handleDeleteFavorite(restaurant.id)
@@ -24,17 +25,20 @@ function FavoritesContainer({ user, favorites = [], setRestaurant, handleDeleteF
     })
   }
 
+  console.log(favorites.restaurants)
+
   return (
-    <div className="restaurant-favorite-container">
+
+<div className="restaurant-favorite-container">
       {favorites.map((restaurant) => {
         return (
           <div className="restaurant-favorite-card">
             <h1>{restaurant.business_name}</h1>
             <div className="restaurant-favorite-address">
-              <h3>{restaurant.address}</h3>
+              <h2>{restaurant.address}</h2>
             </div>
             <h3>{restaurant.phone_number}</h3>
-            <h3>{restaurant.likes}</h3>
+            <h4>{restaurant.likes}</h4>
             <img
               className="favorite-restaurant-image"
               src={restaurant.image_url}
@@ -44,7 +48,7 @@ function FavoritesContainer({ user, favorites = [], setRestaurant, handleDeleteF
               <button className="fancy-button">More Info</button>
             </Link>
             <button onClick={() => handleDelete(user, restaurant)}>
-              Delete Favorite
+              Remove Favorite
             </button>
           </div>
         );

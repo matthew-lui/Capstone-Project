@@ -30,11 +30,12 @@ function App() {
       setUser(user);
       setFavorites(user.restaurants);
 
+
       const response2 = await fetch("/restaurants");
       const restaurants = await response2.json();
       setRestaurants(restaurants);
 
-      // const response3 = await fetch("/favorites");
+   
 
     }
     fetchData();
@@ -53,16 +54,14 @@ function App() {
 
   console.log(user)
 
-  // function handleDeleteRestaurant(id) {
-  //   const updateRestaurantArray = restaurants.filter(
-  //     (restaurant) => restaurant.id !== id
-  //   );
-  //   setRestaurants(updateRestaurantArray);
-  // }
+  function handleDeleteRestaurant(id) {
+    const updateRestaurantArray = restaurants.filter(
+      (restaurant) => restaurant.id !== id
+    );
+    setRestaurants(updateRestaurantArray);
+  }
 
   function handleDeleteFavorite(id) {
-    console.log(favorites, restaurants)
-    
     const updateFavoriteArray = restaurants.filter(
       (favorite) => favorite.id !== id
     );
@@ -82,7 +81,7 @@ function App() {
           element={
             <Home
               restaurants={restaurants}
-              
+              handleDeleteRestaurant={handleDeleteRestaurant}
               favorites={favorites}
               setFavorites={setFavorites}
             />
@@ -102,6 +101,7 @@ function App() {
               favoritesData={favorites}
               user={user}
               handleDeleteFavorite={handleDeleteFavorite}
+              restaurants={restaurants}
             />
           }
         />
