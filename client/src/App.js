@@ -51,22 +51,23 @@ function App() {
     })
   }
 
+  console.log(user)
 
-  function handleDeleteRestaurant(id) {
-    const updateRestaurantArray = restaurants.filter(
-      (restaurant) => restaurant.id !== id
-    );
-    setRestaurants(updateRestaurantArray);
-  }
-
-  // function handleDeleteFavorite(restaurants, favorites, id) {
-  //   console.log(favorites, restaurants)
-    
-  //   const updateFavoriteArray = restaurants.filter(
-  //     (favorite) => favorite.id !== id
+  // function handleDeleteRestaurant(id) {
+  //   const updateRestaurantArray = restaurants.filter(
+  //     (restaurant) => restaurant.id !== id
   //   );
-  //   setFavorites(updateFavoriteArray);
+  //   setRestaurants(updateRestaurantArray);
   // }
+
+  function handleDeleteFavorite(id) {
+    console.log(favorites, restaurants)
+    
+    const updateFavoriteArray = restaurants.filter(
+      (favorite) => favorite.id !== id
+    );
+    setFavorites(updateFavoriteArray);
+  }
   
 
   
@@ -81,7 +82,7 @@ function App() {
           element={
             <Home
               restaurants={restaurants}
-              handleDeleteRestaurant={handleDeleteRestaurant}
+              
               favorites={favorites}
               setFavorites={setFavorites}
             />
@@ -100,7 +101,7 @@ function App() {
               favorites={favorites}
               favoritesData={favorites}
               user={user}
-              // handleDeleteFavorite={handleDeleteFavorite}
+              handleDeleteFavorite={handleDeleteFavorite}
             />
           }
         />

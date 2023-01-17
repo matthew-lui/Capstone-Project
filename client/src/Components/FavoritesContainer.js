@@ -1,3 +1,4 @@
+import { id } from "date-fns/locale";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -7,11 +8,11 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function FavoritesContainer({ user, favorites = [], setRestaurant }) {
+function FavoritesContainer({ user, favorites = [], setRestaurant, handleDeleteFavorite }) {
   //console.log(favorites);
 
   function handleDelete(user, restaurant) {
-
+    handleDeleteFavorite(restaurant.id)
 
     fetch(`/favorites/delete`, {
       method: "DELETE",
@@ -20,7 +21,7 @@ function FavoritesContainer({ user, favorites = [], setRestaurant }) {
         user: user,
         restaurant: restaurant,
       })
-    });
+    })
   }
 
   return (
