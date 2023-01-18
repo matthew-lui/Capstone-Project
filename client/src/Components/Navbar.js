@@ -26,6 +26,12 @@ function NavBar({ user }) {
               alt={user.username}
             />
             <h4 className="profile_greeting">{user.username}</h4>
+      <NavLink className="private-navlink" to="/create-restaurant">
+        Create Restaurant
+      </NavLink>
+      <NavLink className="private-navlink" to="/myfavorites">
+        My Favorites
+      </NavLink>
           </div>
         ) : (
           <div></div>
@@ -37,14 +43,8 @@ function NavBar({ user }) {
         <NavLink className="navlink" to="/">
           Home
         </NavLink>
-        <NavLink className="navlink" to="/myfavorites">
-          My Favorites
-        </NavLink>
         <></>
         <>
-          <NavLink className="navlink" to="/create-restaurant">
-            Create Restaurant
-          </NavLink>
           <NavLink className="navlink" to="/userlogin">
             Login
           </NavLink>
