@@ -8,7 +8,7 @@ function SignUp({onSignUp}) {
   const [profile_pic, setProfilePic] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-console.log(errors)
+// console.log(errors)
 
 let navigate = useNavigate();
 
@@ -35,7 +35,7 @@ let navigate = useNavigate();
       } else {
         r.json().then((err) => {
           console.log(err)
-          setErrors(err.errors) 
+          setErrors(err.error) 
           
         });
         
@@ -90,7 +90,7 @@ let navigate = useNavigate();
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
 
         {errors.map((err) => (
-          <error key={err}>{err}</error>
+          <div key={err}>{err}</div>
         ))}
 
     </form>

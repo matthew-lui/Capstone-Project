@@ -7,7 +7,8 @@ class UsersController < ApplicationController
           session[:user_id] = user.id
           render json: user
         else
-          render json:{error: user.errors.full_messages}, status: :unprocessable_entity
+          this_will_become_the_variable_err = {error: user.errors.full_messages}
+          render json: this_will_become_the_variable_err, status: :unprocessable_entity
         end
     end
     
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
       if user
         render json: user, status: :ok
       else 
-        render json:{error: 'Not authorized'} , status: :unauthorized
+        render json: {error: "User Not Found"}, status: :not_found
       end
     
     end

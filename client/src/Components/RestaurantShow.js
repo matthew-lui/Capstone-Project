@@ -87,7 +87,7 @@ function updateCommentLikes(post) {
               <div>
 
               {restaurant && restaurant.posts.map(post => 
-                    <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p> 
+                    <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p> <p>{post.findpostuser}</p>
                   <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}

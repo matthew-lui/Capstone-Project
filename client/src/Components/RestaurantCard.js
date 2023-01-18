@@ -6,6 +6,7 @@ const headers = {
 };
 
 function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteRestaurant }) {
+  console.log(favorites)
   const [restaurantData, setRestaurantData] = useState(restaurant);
   function handleAddFavorite() {
     fetch("/favorites", {
@@ -64,7 +65,7 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
         Like
       </button>
       <Link to={"/myfavorites/"}>
-      <button className="add-favorite" onClick={()=>handleAddFavorite(...favorites)}>add to favorites</button>
+      <button className="add-favorite" onClick={()=>handleAddFavorite()}>add to favorites</button>
       </Link>
       <button className="delete-restaurant" onClick={()=>handleDelete(restaurant.id)}>Delete</button>
     </div>

@@ -20,20 +20,19 @@ function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [postsData, setPostsData] = useState([])
-  const [errors, setErrors] = useState(false)
+
 
   useEffect(() => {
     async function fetchData() {
       const response1 = await fetch("/me");
-      const user = await response1.json();
-      setUser(user);
-      setFavorites(user.restaurants);
+      const userResponse = await response1.json();
+      setUser(userResponse);
+      setFavorites(userResponse.restaurants);
 
 
       const response2 = await fetch("/restaurants");
-      const restaurants = await response2.json();
-      setRestaurants(restaurants);
+      const restaurantsResponse = await response2.json();
+      setRestaurants(restaurantsResponse);
 
    
 
@@ -41,18 +40,9 @@ function App() {
     fetchData();
   }, []);
 
-  const fetchPost =() =>{
-    fetch("/posts")
-    .then(res => {
-      if(res.ok){
-        res.json().then(setPostsData)
-      }else {
-        res.json().then(data => setErrors(data.error))
-      }
-    })
-  }
 
-  console.log(user)
+ 
+  // console.log(errors)
 
   function handleDeleteRestaurant(id) {
     const updateRestaurantArray = restaurants.filter(
