@@ -62,7 +62,7 @@ function App() {
   }
 
   function handleDeleteFavorite(id) {
-    const updateFavoriteArray = restaurants.filter(
+    const updateFavoriteArray = favorites.filter(
       (favorite) => favorite.id !== id
     );
     setFavorites(updateFavoriteArray);
