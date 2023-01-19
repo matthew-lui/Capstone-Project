@@ -15,7 +15,7 @@ function FavoritesContainer({ user, favorites =[], handleDeleteFavorite }) {
   function handleDelete(user, restaurant) {
     handleDeleteFavorite(restaurant.id)
 
-    fetch(`/favorites/delete`, {
+    fetch(`/favorites/`, {
       method: "DELETE",
       headers,
       body: JSON.stringify({

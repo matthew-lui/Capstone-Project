@@ -13,6 +13,8 @@ function RestaurantShow({ user }) {
   const [restaurant, setRestaurant] = useState();
   const [posts, setPosts] = useState([]);
 
+  console.log(restaurant)
+
   useEffect(() => {
     fetch(`/restaurants/${id}`)
       .then((response) => response.json())

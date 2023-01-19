@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :show, :create, :destroy, :update]
     
     def index
         render json: Post.all
@@ -15,10 +15,11 @@ class PostsController < ApplicationController
     end
 
     def create
+       
         post = Post.create(post_params)
 
             if post.valid?
-                render json: post
+                render json: post, status: :created
             else 
                 render json: {error: post.errors.full_messages}, status: :unprocessable_entity
             end
