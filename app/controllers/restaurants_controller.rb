@@ -8,11 +8,21 @@ class RestaurantsController < ApplicationController
 
     def show
         restaurant = Restaurant.find_by_id(params[:id])
-            if restaurant
-                render json: restaurant
-            else
-                render json: { error: "Restaurant not found" }, status: :not_found
-            end
+        if restaurant
+            render json: restaurant
+        else
+            render json: { error: "Restaurant not found" }, status: :not_found
+        end
+    end
+
+
+    def destroy_comment
+        doomedComment = comment.find_by_id(params[:id])
+        if doomedComment.user.id == @current_user.id
+            doomedComment.destroy
+        else
+            render json:  {error: "You can't delete this comment"}, status: :unauthorized
+        end
     end
 
     def create
@@ -20,7 +30,8 @@ class RestaurantsController < ApplicationController
             if restaurant.valid?
                 render json: restaurant
             else 
-                render json: {error: restaurant.errors.full_messages}, status: :unprocessable_entity
+                this_will_become_the_variable_err = {error: user.errors.full_messages}
+                render json: this_will_become_the_variable_err, status: :unprocessable_entity
             end
     end
 

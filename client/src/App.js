@@ -12,37 +12,35 @@ import NotFound from "./Components/NotFound";
 import CreateRestaurant from "./Components/CreateRestaurant";
 import FavoritesContainer from "./Components/FavoritesContainer";
 
-const headers = {
-  Accepts: "application/json",
-  "Content-Type": "application/json",
-};
+
 function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [posts, setPosts] = useState([]);
 
 
-  useEffect(() => {
-    async function fetchData() {
-      const response1 = await fetch("/me");
-      const userResponse = await response1.json();
-      setUser(userResponse);
-      setFavorites(userResponse.restaurants);
+useEffect(() => {
+  fetch("/me")
+  .then((r) => r.json())
+  .then((data) => setUser(data));
+},[])
 
+useEffect(() => {
+  fetch("/restaurants")
+  .then((r) => r.json())
+  .then((data) => setRestaurants(data));
+},[])
 
-      const response2 = await fetch("/restaurants");
-      const restaurantsResponse = await response2.json();
-      setRestaurants(restaurantsResponse);
-
-   
-
-    }
-    fetchData();
-  }, []);
-
-
+useEffect(() => {
+  fetch("/posts")
+  .then((r) => r.json())
+  .then((data) => setPosts(data));
+},[])
  
-  // console.log(errors)
+ console.log(restaurants)
+ 
+
 
   function handleDeleteRestaurant(id) {
     const updateRestaurantArray = restaurants.filter(
@@ -74,6 +72,7 @@ function App() {
               handleDeleteRestaurant={handleDeleteRestaurant}
               favorites={favorites}
               setFavorites={setFavorites}
+              user={user}
             />
           }
         />
@@ -107,7 +106,7 @@ function App() {
         />
         <Route
           path="/restaurants/:id"
-          element={<RestaurantShow user={user} />}
+          element={<RestaurantShow user={user} posts={posts}/>}
         />
         <Route
           path="/logout"

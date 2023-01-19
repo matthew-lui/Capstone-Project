@@ -6,6 +6,7 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
   // console.log(prop)
   let navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   // useEffect(() => {
   //     fetch("/restaurants").then((res) => {
@@ -49,6 +50,9 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
         setShowForm(!showForm);
       });
   };
+
+
+  
   let handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -120,6 +124,11 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
       ) : (
         <></>
       )}
+
+        {errors.map((err) => (
+          <div key={err}>{err}</div>
+        ))}
+
     </div>
   );
 }

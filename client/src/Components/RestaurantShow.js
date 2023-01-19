@@ -91,7 +91,7 @@ function updateCommentLikes(post) {
                   <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}
-                 { <button className='stat-button' onClick={()=>handleDelete(post.id)}>DELETE</button> }
+                 <button className='stat-button' onClick={()=>handleDelete(post.id)}>Remove Comment</button>
                 </div>)}
               </div>
             </div>
