@@ -37,7 +37,7 @@ function NavBar({ user }) {
           <div></div>
         )}
       </div>
-       <nav>
+       <div>
         <NavLink className="nav-link" to="/">
           Home
         </NavLink>
@@ -53,7 +53,7 @@ function NavBar({ user }) {
             Logout
           </NavLink>
         </>
-      </nav>
+      </div>
     </div>
   );
 }
