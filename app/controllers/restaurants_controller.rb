@@ -16,14 +16,14 @@ class RestaurantsController < ApplicationController
     end
 
 
-    def destroy_comment
-        doomedComment = comment.find_by_id(params[:id])
-        if doomedComment.user.id == @current_user.id
-            doomedComment.destroy
-        else
-            render json:  {error: "You can't delete this comment"}, status: :unauthorized
-        end
-    end
+    # def destroy_comment
+    #     doomedComment = comment.find_by_id(params[:id])
+    #     if doomedComment.user.id == @current_user.id
+    #         doomedComment.destroy
+    #     else
+    #         render json:  {error: "You can't delete this comment"}, status: :unauthorized
+    #     end
+    # end
 
     def create
         restaurant = Restaurant.create(restaurant_params)

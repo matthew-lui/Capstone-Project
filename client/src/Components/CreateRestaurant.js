@@ -63,10 +63,10 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
   };
 
   return (
-    <div>
+    <div className="restaurant-form">
       <div>
         <button
-          className="create-button"
+          className="button"
           id="create-restaurant-button"
           onClick={() => setShowForm(!showForm)}
         >
@@ -116,7 +116,7 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
               type="text"
               onChange={handleChange}
             />
-            <button className="create-button" id="create-restaurant-button">
+            <button className="button" id="create-restaurant-button">
               Create Restaurant
             </button>
           </form>

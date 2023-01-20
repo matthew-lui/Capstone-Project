@@ -58,7 +58,7 @@ let navigate = useNavigate();
       
         <label htmlFor="password">Password</label>
         <input
-          class="password"
+          className="password"
           type="password"
           id="password"
           value={password}
@@ -69,7 +69,7 @@ let navigate = useNavigate();
 
         <label htmlFor="password_confirmation">Password Confirmation</label>
         <input
-          class="password-confirmation"
+          className="password-confirmation"
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}

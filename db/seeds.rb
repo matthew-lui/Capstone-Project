@@ -3,6 +3,7 @@ puts "Destroying database"
 User.destroy_all
 Restaurant.destroy_all
 Post.destroy_all
+Favorite.destroy_all
 
 puts "Seeding users...👥"
 

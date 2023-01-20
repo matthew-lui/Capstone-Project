@@ -8,7 +8,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function FavoritesContainer({ user, favorites =[], handleDeleteFavorite }) {
+function FavoritesContainer({ user, favorites, handleDeleteFavorite }) {
   
   // console.log(favorites)
 
@@ -45,7 +45,7 @@ function FavoritesContainer({ user, favorites =[], handleDeleteFavorite }) {
               alt={restaurant.business_name}
             />
             <Link to={`/restaurants/${restaurant.id}`}>
-              <button className="fancy-button">More Info</button>
+              <button className="button">More Info</button>
             </Link>
             <button onClick={() => handleDelete(user, restaurant)}>
               Remove Favorite

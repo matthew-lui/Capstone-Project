@@ -17,28 +17,43 @@ function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
 
 
-useEffect(() => {
-  fetch("/me")
-  .then((r) => r.json())
-  .then((data) => setUser(data));
-},[])
+  useEffect(() => {
+    async function fetchData() {
+      const response1 = await fetch('/me');
+      const user1 = await response1.json();
+      setUser(user1);
 
-useEffect(() => {
-  fetch("/restaurants")
-  .then((r) => r.json())
-  .then((data) => setRestaurants(data));
-},[])
+      const response2 = await fetch('/restaurants');
+      const restaurants1 = await response2.json();
+      setRestaurants(restaurants1);
+    }
+    fetchData();
+  }, []);
 
-useEffect(() => {
-  fetch("/posts")
-  .then((r) => r.json())
-  .then((data) => setPosts(data));
-},[])
+
+
+// useEffect(() => {
+//   fetch("/me")
+//   .then((r) => r.json())
+//   .then((data) => setUser(data));
+// },[])
+
+// useEffect(() => {
+//   fetch("/restaurants")
+//   .then((r) => r.json())
+//   .then((data) => setRestaurants(data));
+// },[])
+
+// useEffect(() => {
+//   fetch("/posts")
+//   .then((r) => r.json())
+//   .then((data) => setPosts(data));
+// },[])
  
- console.log(restaurants)
+//  console.log(restaurants)
  
 
 
@@ -106,7 +121,7 @@ useEffect(() => {
         />
         <Route
           path="/restaurants/:id"
-          element={<RestaurantShow user={user} posts={posts}/>}
+          element={<RestaurantShow user={user}/>}
         />
         <Route
           path="/logout"

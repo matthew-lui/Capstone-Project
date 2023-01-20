@@ -37,8 +37,8 @@ function CommentForm({ user, setRestaurant, restaurant }) {
   };
 
   return (
-    <div>
-      <form id="form" onSubmit={handleSubmit}>
+    <div className="comment-form">
+      <form className="comment-form" id="Comment-form" onSubmit={handleSubmit}>
         <label>Comment</label>
         <input
           className="input_field"
