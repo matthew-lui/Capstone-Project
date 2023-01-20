@@ -177,3 +177,19 @@ h2.card_body {
 }
 
 
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #333;
+	border-radius: 25px;
+  }
+  .nav-link {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 10px;
+  }
+  .nav-link:hover {
+	text-decoration: underline;
+  }

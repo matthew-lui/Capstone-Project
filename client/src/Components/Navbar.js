@@ -16,8 +16,8 @@ function NavBar({ user }) {
   // }, []);
 
   return (
-    <>
-      <div className="animation start-home">
+    <div className="nav">
+      <div>
         {user ? (
           <div className="profile_container">
             <img
@@ -26,10 +26,10 @@ function NavBar({ user }) {
               alt={user.username}
             />
             <h4 className="profile_greeting">{user.username}</h4>
-      <NavLink className="private-navlink" to="/create-restaurant">
+      <NavLink className="nav-link" to="/create-restaurant">
         Create Restaurant
       </NavLink>
-      <NavLink className="private-navlink" to="/myfavorites">
+      <NavLink className="nav-link" to="/myfavorites">
         My Favorites
       </NavLink>
           </div>
@@ -37,26 +37,24 @@ function NavBar({ user }) {
           <div></div>
         )}
       </div>
-      {/* <NavLink to="/">Home</NavLink>
-      {isLoggedIn && <NavLink to="/profile">Profile</NavLink>} */}
-      <nav className="navMenu">
-        <NavLink className="navlink" to="/">
+       <nav>
+        <NavLink className="nav-link" to="/">
           Home
         </NavLink>
         <></>
         <>
-          <NavLink className="navlink" to="/userlogin">
+          <NavLink className="nav-link" to="/userlogin">
             Login
           </NavLink>
-          <NavLink className="navlink" to="/signup">
+          <NavLink className="nav-link" to="/signup">
             Sign Up
           </NavLink>
-          <NavLink className="navlink" to="/logout">
+          <NavLink className="nav-link" to="/logout">
             Logout
           </NavLink>
         </>
       </nav>
-    </>
+    </div>
   );
 }
 
