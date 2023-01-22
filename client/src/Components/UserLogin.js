@@ -36,7 +36,7 @@ function UserLogin({ onLogin }) {
 
   return (
     <div>
-    <div className="login-form">
+    <div className="login-form-container">
     <form  className="login-form" onSubmit={handleSubmit}>
     
         <label htmlFor="username">Username</label>

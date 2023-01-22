@@ -46,7 +46,7 @@ let navigate = useNavigate();
 
   return (
     <div>
-    <div className="signup-form">
+    <div className="signup-form-container">
     <form className="signup-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input

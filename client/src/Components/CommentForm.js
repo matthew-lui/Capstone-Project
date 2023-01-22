@@ -37,6 +37,7 @@ function CommentForm({ user, setRestaurant, restaurant }) {
   };
 
   return (
+    <div className="comment-form-container">
     <div className="comment-form">
       <form className="comment-form" id="Comment-form" onSubmit={handleSubmit}>
         <label>Comment</label>
@@ -52,6 +53,7 @@ function CommentForm({ user, setRestaurant, restaurant }) {
           add comment
         </button>
       </form>
+    </div>
     </div>
   );
 }
