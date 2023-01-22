@@ -5,8 +5,14 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteRestaurant, user}) {
-  console.log(favorites)
+function RestaurantCard({
+  restaurant,
+  setFavorites,
+  favorites,
+  handleDeleteRestaurant,
+  user,
+}) {
+  console.log(favorites);
   const [restaurantData, setRestaurantData] = useState(restaurant);
   function handleAddFavorite() {
     fetch("/favorites", {
@@ -32,12 +38,12 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
       });
   }
 
-  function handleDelete(id){
-     handleDeleteRestaurant(id)
-      fetch(`restaurants/${id}`,{
-          method: 'DELETE',
-          headers,
-      })
+  function handleDelete(id) {
+    handleDeleteRestaurant(id);
+    fetch(`restaurants/${id}`, {
+      method: "DELETE",
+      headers,
+    });
   }
   return (
     <div className="card">
@@ -48,13 +54,15 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
           alt={restaurant.business_name}
           width="600"
         />
-        <h3>{restaurant.business_name}</h3>
       </div>
-      <ul className="card_body">
-        <h2>{restaurant.address}</h2>
+      <header>{restaurant.business_name}</header>
+      <br />
+      <div className="card_body">
+        <h3>{restaurant.address}</h3>
         <h3>{restaurant.phone_number}</h3>
-        <h4>{restaurant.likes}</h4>
-      </ul>
+        <h4>{restaurant.likes} Likes</h4>
+        <br/>
+      </div>
       <Link to={`/restaurants/${restaurant.id}`}>
         <button className="fancy-button">More Info</button>
       </Link>
@@ -65,9 +73,17 @@ function RestaurantCard({ restaurant, setFavorites, favorites, handleDeleteResta
         Like
       </button>
       <Link to={"/myfavorites/"}>
-      <button className="add-favorite" onClick={()=>handleAddFavorite()}>add to favorites</button>
+        <button className="fancy-button" onClick={() => handleAddFavorite()}>
+          add to favorites
+        </button>
+        
       </Link>
-     <button className="delete-restaurant" onClick={()=>handleDelete(restaurant.id)}>Delete</button>
+      {/* <button
+        className="fancy-button"
+        onClick={() => handleDelete(restaurant.id)}
+      >
+        Delete
+      </button> */}
     </div>
   );
 }

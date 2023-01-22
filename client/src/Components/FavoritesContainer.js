@@ -9,11 +9,10 @@ const headers = {
 };
 
 function FavoritesContainer({ user, favorites, handleDeleteFavorite }) {
-  
   // console.log(favorites)
 
   function handleDelete(user, restaurant) {
-    handleDeleteFavorite(restaurant.id)
+    handleDeleteFavorite(restaurant.id);
 
     fetch(`/favorites/`, {
       method: "DELETE",
@@ -21,33 +20,37 @@ function FavoritesContainer({ user, favorites, handleDeleteFavorite }) {
       body: JSON.stringify({
         user: user,
         restaurant: restaurant,
-      })
-    })
+      }),
+    });
   }
 
-  console.log(favorites.restaurants)
+  console.log(favorites.restaurants);
 
   return (
-
-<div className="restaurant-favorite-container">
+    <div className="ultimate-fav">
       {favorites.map((restaurant) => {
         return (
-          <div className="restaurant-favorite-card">
-            <h1>{restaurant.business_name}</h1>
-            <div className="restaurant-favorite-address">
-              <h2>{restaurant.address}</h2>
-            </div>
-            <h3>{restaurant.phone_number}</h3>
-            <h4>{restaurant.likes}</h4>
+          <div className="fav-card">
             <img
-              className="favorite-restaurant-image"
+              className="card_image"
               src={restaurant.image_url}
               alt={restaurant.business_name}
             />
+            <header>{restaurant.business_name}</header>
+            <br />
+            <div className="card_body">
+              <h2>{restaurant.address}</h2>
+            </div>
+            <h3>{restaurant.phone_number}</h3>
+            <h4>Likes {restaurant.likes}</h4>
+            <br />
             <Link to={`/restaurants/${restaurant.id}`}>
-              <button className="button">More Info</button>
+              <button className="fancy-button">More Info</button>
             </Link>
-            <button onClick={() => handleDelete(user, restaurant)}>
+            <button
+              className="fancy-button"
+              onClick={() => handleDelete(user, restaurant)}
+            >
               Remove Favorite
             </button>
           </div>
