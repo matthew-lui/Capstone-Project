@@ -23,6 +23,6 @@ class FavoritesController < ApplicationController
 
     private
     def favorite_params
-        params.permit(:restaurant_id)
+        params.permit(:restaurant_id, :user_id)
     end
 end

@@ -45,9 +45,12 @@ let navigate = useNavigate();
   }
 
   return (
+    <div>
+    <div className="signup-form">
     <form className="signup-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
+          className="input-field"
           type="text"
           id="username"
           autoComplete="off"
@@ -58,7 +61,7 @@ let navigate = useNavigate();
       
         <label htmlFor="password">Password</label>
         <input
-          className="password"
+          className="input-field"
           type="password"
           id="password"
           value={password}
@@ -69,7 +72,7 @@ let navigate = useNavigate();
 
         <label htmlFor="password_confirmation">Password Confirmation</label>
         <input
-          className="password-confirmation"
+          className="input-field"
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}
@@ -79,7 +82,7 @@ let navigate = useNavigate();
     
         <label htmlFor="profile_pic">Profile Picture URL</label>
         <input
-          class="profile-pic"
+          className="input-field"
           type="text"
           id="profile_pic"
           value={profile_pic}
@@ -87,13 +90,15 @@ let navigate = useNavigate();
         />
     
 
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button className="btn btn-primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
 
         {errors.map((err) => (
           <div key={err}>{err}</div>
         ))}
 
     </form>
+    </div>
+    </div>
   );
 }
 

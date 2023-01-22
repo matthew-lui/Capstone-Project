@@ -35,11 +35,13 @@ function UserLogin({ onLogin }) {
   }
 
   return (
+    <div>
+    <div className="login-form">
     <form  className="login-form" onSubmit={handleSubmit}>
     
         <label htmlFor="username">Username</label>
         <input
-          class="username"
+          className="input-field"
           type="text"
           id="username"
           autoComplete="off"
@@ -49,7 +51,7 @@ function UserLogin({ onLogin }) {
 
         <label htmlFor="password">Password</label>
         <input
-          class="password"
+          className="input-field"
           type="password"
           id="password"
           autoComplete="current-password"
@@ -57,7 +59,7 @@ function UserLogin({ onLogin }) {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button variant="fill" color="primary" type="submit">
+        <button className="btn btn-primary" variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Login"}
         </button>
 
@@ -66,6 +68,8 @@ function UserLogin({ onLogin }) {
         ))}
 
     </form>
+    </div>
+    </div>
   );
 }
 

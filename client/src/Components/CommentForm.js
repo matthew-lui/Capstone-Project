@@ -41,14 +41,14 @@ function CommentForm({ user, setRestaurant, restaurant }) {
       <form className="comment-form" id="Comment-form" onSubmit={handleSubmit}>
         <label>Comment</label>
         <input
-          className="input_field"
+          className="input-field"
           value={formData.comments}
           placeholder=""
           name="comments"
           type="text"
           onChange={handleChange}
         />
-        <button className="button" id="comment-button">
+        <button className="btn btn-primary" id="comment-button">
           add comment
         </button>
       </form>

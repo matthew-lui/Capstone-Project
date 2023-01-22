@@ -63,10 +63,10 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
   };
 
   return (
-    <div className="restaurant-form">
-      <div>
+    <div className="restaurant-form-container">
+      <div className="restaurant-form">
         <button
-          className="button"
+          className="btn btn-primary"
           id="create-restaurant-button"
           onClick={() => setShowForm(!showForm)}
         >
@@ -75,9 +75,9 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
       </div>
       {showForm ? (
         <div>
-          <form id="form" onSubmit={handleSubmit}>
+          <form id="restaurant-form" onSubmit={handleSubmit}>
             <input
-              className="input_field"
+              className="input-field"
               value={formData.business_name}
               placeholder="Restaurant Name"
               name="business_name"
@@ -85,7 +85,7 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
               onChange={handleChange}
             />
             <input
-              className="input_field"
+              className="input-field"
               value={formData.address}
               placeholder="Address"
               name="address"
@@ -93,7 +93,7 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
               onChange={handleChange}
             />
             <input
-              className="input_field"
+              className="input-field"
               value={formData.phone_number}
               placeholder="Phone Number"
               name="phone_number"
@@ -101,7 +101,7 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
               onChange={handleChange}
             />
             <input
-              className="input_field"
+              className="input-field"
               value={formData.website}
               placeholder="Restaurant Website"
               name="website"
@@ -109,14 +109,14 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
               onChange={handleChange}
             />
             <input
-              className="input_field"
+              className="input-field"
               value={formData.image_url}
               placeholder="Image url"
               name="image_url"
               type="text"
               onChange={handleChange}
             />
-            <button className="button" id="create-restaurant-button">
+            <button className="btn btn-primary" id="create-restaurant-button">
               Create Restaurant
             </button>
           </form>
