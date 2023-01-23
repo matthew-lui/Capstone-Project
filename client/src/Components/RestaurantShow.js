@@ -85,14 +85,19 @@ function updateCommentLikes(post) {
                 </a>
               </div>
               <div>
-               
+               <br></br>
               <div className="comment-area">
               {restaurant && restaurant.posts.map(post => 
                     <div className="comment"><p>{post.comments}</p><p>{post.likes} Comment likes</p> <p>{post.findpostuser}</p>
+                    <br></br>
                   <button className='fancy-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
+                  <br></br>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}
                  <button className='fancy-button' onClick={()=>handleDelete(post.id)}>Remove Comment</button>
+                 <br></br>
+                 <br></br>
+                 <br></br>
                 </div>)}
               </div>
               </div>
