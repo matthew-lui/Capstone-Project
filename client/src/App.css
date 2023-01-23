@@ -414,3 +414,10 @@ button.btn {
   text-align: center;
   font-size: 16px;
 }
+
+.comment-form-container{
+  display: flex;
+  justify-content: center
+
+
+}
