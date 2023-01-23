@@ -404,4 +404,13 @@ button.btn {
 
 .comment-area{
   display: flex;
+  flex-direction: column;
+}
+
+.comment{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 16px;
 }

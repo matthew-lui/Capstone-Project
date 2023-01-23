@@ -73,7 +73,7 @@ function updateCommentLikes(post) {
                   <h4>{restaurant.phone_number}</h4>
                 </div>
 
-                <h5> likes {restaurant.likes}</h5>
+                <h5> Restaurant likes {restaurant.likes}</h5>
                 <br></br>
                 <a
                   className="stat-button"
@@ -85,10 +85,10 @@ function updateCommentLikes(post) {
                 </a>
               </div>
               <div>
-                <div className="commentarea">
+               
               <div className="comment-area">
               {restaurant && restaurant.posts.map(post => 
-                    <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p> <p>{post.findpostuser}</p>
+                    <div className="comment"><p>{post.comments}</p><p>{post.likes} Comment likes</p> <p>{post.findpostuser}</p>
                   <button className='fancy-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}
@@ -99,7 +99,7 @@ function updateCommentLikes(post) {
             </div>
             <CommentForm user={user} restaurant={restaurant} setRestarant={setRestaurant}/>
           </div>
-          </div>
+          
         )}
       </div>
     </div>
