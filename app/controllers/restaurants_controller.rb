@@ -59,7 +59,7 @@ class RestaurantsController < ApplicationController
 
     private
     def restaurant_params
-        params.permit(:business_name, :address, :phone_number, :website, :image_url, :google_coordinates, :user_id)
+        params.permit(:business_name, :address, :phone_number, :website, :image_url, :google_coordinates, :user_id, :price, :cuisine)
     end
     def likes
         params.permit(:likes)

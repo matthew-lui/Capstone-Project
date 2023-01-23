@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2023_01_11_154220) do
     t.integer "likes"
     t.string "google_coordinates"
     t.integer "user_id"
+    t.string "price"
+    t.string "cuisine"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

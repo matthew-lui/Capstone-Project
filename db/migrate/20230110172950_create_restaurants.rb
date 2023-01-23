@@ -9,6 +9,8 @@ class CreateRestaurants < ActiveRecord::Migration[6.1]
       t.integer :likes
       t.string :google_coordinates
       t.integer :user_id
+      t.string :price
+      t.string :cuisine
 
       t.timestamps
     end

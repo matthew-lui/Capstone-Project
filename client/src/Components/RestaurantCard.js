@@ -61,6 +61,7 @@ function RestaurantCard({
         <h3>{restaurant.address}</h3>
         <h3>{restaurant.phone_number}</h3>
         <h4>{restaurant.likes} Likes</h4>
+        <h5>Cost: {restaurant.price}</h5>
         <br/>
       </div>
       <Link to={`/restaurants/${restaurant.id}`}>
@@ -77,12 +78,12 @@ function RestaurantCard({
           add to favorites
         </button>
       </Link>
-      {/* <button
+      {/* { user.id === user.id ? (<button
         className="fancy-button"
         onClick={() => handleDelete(restaurant.id)}
       >
         Delete
-      </button> */}
+      </button>) : null} */}
     </div>
   );
 }

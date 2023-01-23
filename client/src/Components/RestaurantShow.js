@@ -50,7 +50,7 @@ function updateCommentLikes(post) {
 }
 
 
-
+console.log(restaurant)
 
   return (
     <div>
@@ -69,10 +69,11 @@ function updateCommentLikes(post) {
 
                 <h3>{restaurant.address}</h3>
                 <br></br>
-                <div stats-container>
+                <div>
                   <h4>{restaurant.phone_number}</h4>
                 </div>
-
+                <h6>Cost: {restaurant.price}</h6>
+                <br></br>
                 <h5> Restaurant likes {restaurant.likes}</h5>
                 <br></br>
                 <a
