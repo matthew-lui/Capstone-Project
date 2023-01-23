@@ -45,9 +45,10 @@ let navigate = useNavigate();
   }
 
   return (
-    <div>
     <div className="signup-form-container">
-    <form className="signup-form" onSubmit={handleSubmit}>
+      <div className="sign-up-form">
+        <div className="signup-form">
+    <form id="signup-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
           className="input-field"
@@ -97,6 +98,7 @@ let navigate = useNavigate();
         ))}
 
     </form>
+    </div>
     </div>
     </div>
   );

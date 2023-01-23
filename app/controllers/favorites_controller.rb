@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+    before_action :authorize, only: [:create, :destroy]
 
     def create
         favorite = Favorite.new(favorite_params)

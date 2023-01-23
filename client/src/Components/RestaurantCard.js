@@ -76,7 +76,6 @@ function RestaurantCard({
         <button className="fancy-button" onClick={() => handleAddFavorite()}>
           add to favorites
         </button>
-        
       </Link>
       {/* <button
         className="fancy-button"

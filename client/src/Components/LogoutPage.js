@@ -14,11 +14,15 @@ function LogoutPage({ user, setUser }) {
 
   console.log(user);
   return (
-    <div className="logout">
+    <div className="logout-form-container">
+    <div className="log-out-form">
+    <div className="logout-form">
       <h1>Are you sure you want to log out?</h1>
-      <button className="logout-button" onClick={handleLogoutClick}>
+      <button className="btn btn-primary" onClick={handleLogoutClick}>
         Log Out
       </button>
+    </div>
+    </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-function FavoritesContainer({ user, favorites, handleDeleteFavorite }) {
+function FavoritesContainer({ user, favorites =[], handleDeleteFavorite }) {
   // console.log(favorites)
 
   function handleDelete(user, restaurant) {
@@ -24,7 +24,7 @@ function FavoritesContainer({ user, favorites, handleDeleteFavorite }) {
     });
   }
 
-  console.log(favorites.restaurants);
+
 
   return (
     <div className="ultimate-fav">

@@ -20,40 +20,41 @@ function App() {
   // const [posts, setPosts] = useState([]);
 
 
-  useEffect(() => {
-    async function fetchData() {
-      const response1 = await fetch('/me');
-      const user1 = await response1.json();
-      setUser(user1);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response1 = await fetch('/me');
+  //     const user1 = await response1.json();
+  //     setUser(user1);
+  //     setFavorites(user1.favorites);
 
-      const response2 = await fetch('/restaurants');
-      const restaurants1 = await response2.json();
-      setRestaurants(restaurants1);
-    }
-    fetchData();
-  }, []);
+  //     const response2 = await fetch('/restaurants');
+  //     const restaurants1 = await response2.json();
+  //     setRestaurants(restaurants1);
+  //   }
+  //   fetchData();
+  // }, []);
 
+// console.log(user.favorites)
 
+useEffect(() => {
+  fetch("/me")
+  .then((r) => r.json())
+  .then((data) => setUser(data));
+},[])
+
+useEffect(() => {
+  fetch("/restaurants")
+  .then((r) => r.json())
+  .then((data) => setRestaurants(data));
+},[])
 
 // useEffect(() => {
-//   fetch("/me")
+//   fetch("/favorites")
 //   .then((r) => r.json())
-//   .then((data) => setUser(data));
-// },[])
-
-// useEffect(() => {
-//   fetch("/restaurants")
-//   .then((r) => r.json())
-//   .then((data) => setRestaurants(data));
-// },[])
-
-// useEffect(() => {
-//   fetch("/posts")
-//   .then((r) => r.json())
-//   .then((data) => setPosts(data));
+//   .then((data) => setFavorites(data));
 // },[])
  
-//  console.log(restaurants)
+ console.log(favorites)
  
 
 

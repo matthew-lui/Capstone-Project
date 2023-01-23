@@ -16,10 +16,12 @@ function NavBar({ user }) {
   // }, []);
 
   return (
+    <div className="profile-container">
+      <div className="profile">
     <div className="nav">
       <div>
         {user ? (
-          <div className="profile_container">
+          <div className="profile_containers">
             <img
               className="profile_pic"
               src={user.profile_pic}
@@ -54,6 +56,8 @@ function NavBar({ user }) {
           </NavLink>
         </>
       </div>
+    </div>
+    </div>
     </div>
   );
 }
