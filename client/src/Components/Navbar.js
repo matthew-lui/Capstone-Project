@@ -16,11 +16,12 @@ function NavBar({ user }) {
   // }, []);
 
   return (
-    <div className="profile-container">
+  
       <div className="profile">
     <div className="nav">
       <div>
         {user ? (
+          <div className="profile-divider">
           <div className="profile_containers">
             <img
               className="profile_pic"
@@ -28,13 +29,16 @@ function NavBar({ user }) {
               alt={user.username}
             />
             <h4 className="profile_greeting">{user.username}</h4>
+            </div>
+            <div>
       <NavLink className="nav-link" to="/create-restaurant">
         Create Restaurant
       </NavLink>
       <NavLink className="nav-link" to="/myfavorites">
         My Favorites
       </NavLink>
-          </div>
+      </div>
+     </div>
         ) : (
           <div></div>
         )}
@@ -58,7 +62,7 @@ function NavBar({ user }) {
       </div>
     </div>
     </div>
-    </div>
+    
   );
 }
 

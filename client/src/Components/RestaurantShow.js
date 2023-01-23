@@ -57,7 +57,7 @@ function updateCommentLikes(post) {
       <div className="show-page">
         {restaurant && (
           <div>
-            <div className="image-container">
+            <div className="showpage-image-container">
               <img
                 className="show-image"
                 src={restaurant.image_url}
@@ -71,10 +71,8 @@ function updateCommentLikes(post) {
                 <br></br>
                 <div stats-container>
                   <h4>{restaurant.phone_number}</h4>
-                  <br></br>
                 </div>
 
-                <br></br>
                 <h5> likes {restaurant.likes}</h5>
                 <br></br>
                 <a
@@ -87,22 +85,25 @@ function updateCommentLikes(post) {
                 </a>
               </div>
               <div>
+                <div className="commentarea">
               <div className="comment-area">
               {restaurant && restaurant.posts.map(post => 
                     <div className="comment"><p>{post.comments}</p><p>{post.likes} likes</p> <p>{post.findpostuser}</p>
-                  <button className='stat-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
+                  <button className='fancy-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}
-                 <button className='stat-button' onClick={()=>handleDelete(post.id)}>Remove Comment</button>
+                 <button className='fancy-button' onClick={()=>handleDelete(post.id)}>Remove Comment</button>
                 </div>)}
               </div>
               </div>
             </div>
             <CommentForm user={user} restaurant={restaurant} setRestarant={setRestaurant}/>
           </div>
+          </div>
         )}
       </div>
     </div>
+
   );
 }
 
