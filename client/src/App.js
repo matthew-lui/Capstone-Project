@@ -18,7 +18,7 @@ function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [search, setSearch] = useState('')
-  const [loggedin, setLoggedIn] = useState(false)
+  // const [loggedin, setLoggedIn] = useState(false)
   // const [posts, setPosts] = useState([]);
 
 
@@ -27,7 +27,7 @@ function App() {
       const response1 = await fetch('/me');
       const user1 = await response1.json();
       setUser(user1);
-      setLoggedIn(true)
+      // setLoggedIn(true)
       setFavorites(user1.restaurants);
 
       const response2 = await fetch('/restaurants');
@@ -61,8 +61,7 @@ function App() {
  
  console.log(favorites)
  
- const searchFilter = restaurants.filter((eachRestaurant) => eachRestaurant.business_name.toLowerCase().includes(search.toLowerCase()) )
-//  eachRestaurant.cuisine.toLowerCase().includes(search.toLowerCase())); 
+ const searchFilter = restaurants.filter((eachRestaurant) => eachRestaurant.business_name.toLowerCase().includes(search.toLowerCase()) || eachRestaurant.cuisine.toLowerCase().includes(search.toLowerCase())); 
 
   function handleDeleteRestaurant(id) {
     const updateRestaurantArray = restaurants.filter(

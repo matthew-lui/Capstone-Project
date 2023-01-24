@@ -18,7 +18,7 @@ function Search({search, setSearch}) {
         <input
         className="search-input-field"
           type="text"
-          placeholder="Search restaurants by name or cuisine"
+          placeholder="Search restaurants by name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

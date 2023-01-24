@@ -26,7 +26,6 @@ function CommentForm({ user, setRestaurant, restaurant }) {
       .then((response) => response.json())
       .then((data) => {
         setFormData(initialFormState);
-        console.log(data)
         setRestaurant({...restaurant, posts: [...restaurant.posts, data]  });
       });
   };
