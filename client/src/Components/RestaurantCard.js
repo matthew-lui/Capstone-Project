@@ -62,7 +62,7 @@ function RestaurantCard({
       <div className="card_body">
         <h3>{restaurant.address}</h3>
         <h3>{restaurant.phone_number}</h3>
-        <h4>{restaurant.likes} Likes</h4>
+        <h4>{restaurant.likes} ❤️</h4>
         <h5>Cost: {restaurant.price}</h5>
         <br/>
       </div>

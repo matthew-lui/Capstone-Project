@@ -7,15 +7,14 @@ function Home({restaurants, handleDeleteRestaurant, favorites, setFavorites, sea
         <div>
             <Search search={search} setSearch={setSearch}/>
             <div className="home-text">
-                <div>
-                    <div>
-             <ul>How it works</ul>
-             <ul>View Recommend Restaurant</ul>
-             <ul>Recommend a Restaurant</ul>
-             <ul> Make your Favorite List</ul>
+                
+                    
+             <p>Discover New Restaurants</p>
+             <p>Recommend Restaurants</p>
+             <p>Save Your Favorites List</p>
              </div>
-             </div>
-             </div>
+             
+             
             <RestaurantContainer restaurants={restaurants} handleDeleteRestaurant={handleDeleteRestaurant} favorites={favorites} setFavorites={setFavorites} />
         </div>
     );

@@ -70,7 +70,7 @@ console.log(setRestaurant)
                   <h4>{restaurant.phone_number}</h4>
                 </div>
                 <h6>Cost: {restaurant.price}</h6>
-                <h5> Restaurant likes {restaurant.likes}</h5>
+                <h5> {restaurant.likes} ❤️</h5>
                 <br></br>
                 <a
                   className="stat-button"
@@ -79,7 +79,7 @@ console.log(setRestaurant)
                   rel="noopener noreferrer" 
                 >
                   {" "}
-                  Visit Restaurant Website
+                  Restaurant Website
                 </a>
               </div>
               <div>
@@ -88,7 +88,7 @@ console.log(setRestaurant)
               {restaurant && restaurant.posts.map(post => {
                console.log(post.user_id)
                return(
-                    <div className="comment"><p>{post.comments}</p><p>{post.likes} Comment likes</p> <p>{post.findpostuser}</p>
+                    <div className="comment"><p>{post.comments}</p><p>{post.likes}👍 </p> <p>{post.findpostuser}</p>
                     <br></br>
                   <button className='fancy-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                   <br></br>
