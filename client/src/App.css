@@ -55,10 +55,10 @@
 body {
   display: flex;
   flex-direction: column;
-  /* background: white; */
-  /* background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5); */
-  background-image: linear-gradient(to bottom, #e6f6f6, #daeff2, #cee7f0, #c5dfed, #bfd6eb, #b4d1e9, #a9cbe6, #9dc6e4, #83c3de, #68c0d4, #50bdc4, #40b8b0);
-  background-position: stretch;
+  background: rgb(229, 236, 239); 
+  /* background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5) */
+  /* background-image: linear-gradient(to bottom, #e6f6f6, #daeff2, #cee7f0, #c5dfed, #bfd6eb, #b4d1e9, #a9cbe6, #9dc6e4, #83c3de, #68c0d4, #50bdc4, #40b8b0);
+  background-position: stretch; */
 }
 
 .container {
@@ -105,6 +105,7 @@ header {
 .card_image {
   height: 355px;
   margin-bottom: 10px;
+  object-fit: cover;
 }
 .card-header {
   display: flex;
@@ -446,8 +447,28 @@ button.btn {
   justify-content: space-evenly;
   font-size: 23px;
   font-family: "Georgia";
+  
 }
 
 .profile-page-container {
   display: flex;
+}
+
+.homeicon{
+  width: 65px;
+  height: 65px;
+  object-fit: contain;;
+}
+
+.homeicon{
+  width: 65px;
+  height: 65px;
+  object-fit: contain;;
+}
+
+.painintheass{
+  width: 75px;
+  height: 85px;
+  object-fit: contain;
+  bottom: 12px;
 }

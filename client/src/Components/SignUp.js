@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 
-function SignUp({onSignUp}) {
+function SignUp({onSignUp, setLoggedIn}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -32,6 +32,7 @@ let navigate = useNavigate();
       if (r.ok) {
         r.json().then((user) => onSignUp(user),
         navigate('/'));
+        setLoggedIn(false)
       } else {
         r.json().then((err) => {
           console.log(err)

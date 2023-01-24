@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 
 
 
-function UserLogin({ onLogin }) {
+function UserLogin({ onLogin, setLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -25,6 +25,7 @@ function UserLogin({ onLogin }) {
       if (r.ok) {
         r.json().then((user) => onLogin(user),
         navigate("/"));
+        setLoggedIn(true)
       } else {
         r.json().then((err) =>{
           console.log(err);

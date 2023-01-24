@@ -19,7 +19,7 @@ function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [search, setSearch] = useState('')
-  // const [loggedin, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
   // const [posts, setPosts] = useState([]);
 
 
@@ -28,7 +28,7 @@ function App() {
       const response1 = await fetch('/me');
       const user1 = await response1.json();
       setUser(user1);
-      // setLoggedIn(true)
+      setLoggedIn(true)
       setFavorites(user1.restaurants);
 
       const response2 = await fetch('/restaurants');
@@ -83,7 +83,7 @@ function App() {
 
   return (
     <div className="App">
-     <NavBar user={user} setUser={setUser} /> 
+      <NavBar user={user} setUser={setUser} loggedIn={loggedIn}/>
       <Routes>
         <Route
           exact
@@ -100,11 +100,11 @@ function App() {
             />
           }
         />
-        <Route exact path="/signup" element={<SignUp onSignUp={setUser} />} />
+        <Route exact path="/signup" element={<SignUp onSignUp={setUser} setLoggedIn={setLoggedIn}/>} />
         <Route
           exact
           path="/userlogin"
-          element={<UserLogin onLogin={setUser} />}
+          element={<UserLogin onLogin={setUser} setLoggedIn={setLoggedIn} />}
         />
         <Route
           path="/myfavorites"

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 // import { useState } from 'react';
 
-function NavBar({ user }) {
+function NavBar({ user, loggedIn }) {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // useEffect(() => {
@@ -20,7 +20,7 @@ function NavBar({ user }) {
       <div className="profile">
     <div className="nav">
       <div>
-        {user ? (
+        {loggedIn && user ? (
           <div className="profile-divider">
           <div className="profile_containers">
             <img
@@ -52,15 +52,17 @@ function NavBar({ user }) {
         </NavLink>
         <></>
         <>
-          <NavLink className="nav-link" to="/userlogin">
+          {loggedIn && user ?
+          <NavLink className="nav-link" to="/logout">
+            Logout
+          </NavLink> : <> 
+           
+          <NavLink className="nav-link" to="/userlogin"> 
             Login
           </NavLink>
           <NavLink className="nav-link" to="/signup">
             Sign Up
-          </NavLink>
-          <NavLink className="nav-link" to="/logout">
-            Logout
-          </NavLink>
+          </NavLink> </>}
         </>
       </div>
     </div>
