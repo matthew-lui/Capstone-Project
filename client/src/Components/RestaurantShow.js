@@ -66,18 +66,17 @@ console.log(setRestaurant)
                 <h1>{restaurant.business_name}</h1>
 
                 <h3>{restaurant.address}</h3>
-                <br></br>
                 <div>
                   <h4>{restaurant.phone_number}</h4>
                 </div>
                 <h6>Cost: {restaurant.price}</h6>
-                <br></br>
                 <h5> Restaurant likes {restaurant.likes}</h5>
                 <br></br>
                 <a
                   className="stat-button"
                   href={restaurant.website}
                   target="_blank"
+                  rel="noopener noreferrer" 
                 >
                   {" "}
                   Visit Restaurant Website

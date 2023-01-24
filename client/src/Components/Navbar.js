@@ -28,7 +28,7 @@ function NavBar({ user }) {
               src={user.profile_pic}
               alt={user.username}
             />
-            <h4 className="profile_greeting">{user.username}</h4>
+            <h4 className="profile_greeting">Welcome! {user.username}</h4>
             </div>
             <div>
       <NavLink className="nav-link" to="/create-restaurant">
