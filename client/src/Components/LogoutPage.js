@@ -18,7 +18,7 @@ function LogoutPage({ user, setUser }) {
     <div className="log-out-form">
     <div className="logout-form">
       <h1>Are you sure you want to log out?</h1>
-      <button className="btn btn-primary" onClick={handleLogoutClick}>
+      <button className="fancy-button" onClick={handleLogoutClick}>
         Log Out
       </button>
     </div>

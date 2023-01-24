@@ -60,7 +60,7 @@ function UserLogin({ onLogin }) {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="btn btn-primary" variant="fill" color="primary" type="submit">
+        <button className="fancy-button" variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Login"}
         </button>
 

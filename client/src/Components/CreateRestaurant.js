@@ -117,7 +117,7 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
               type="text"
               onChange={handleChange}
             />
-            <button className="btn btn-primary" id="create-restaurant-button">
+            <button className="fancy-button" id="create-restaurant-button">
               Submit Restaurant
             </button>
           </form>

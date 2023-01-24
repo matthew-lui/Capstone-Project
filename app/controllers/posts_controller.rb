@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
 
     def post_params
-        params.permit(:restaurant_id, :user_id, :comments, :likes)
+        params.require(:post).permit(:restaurant_id, :user_id, :comments, :likes)
     end
 
     def likes

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Comment(props) {
+function Profile(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Comment(props) {
     );
 }
 
-export default Comment;
+export default Profile;

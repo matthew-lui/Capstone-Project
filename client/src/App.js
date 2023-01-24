@@ -17,36 +17,41 @@ function App() {
   const [user, setUser] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [search, setSearch] = useState('')
+  const [loggedin, setLoggedIn] = useState(false)
   // const [posts, setPosts] = useState([]);
 
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response1 = await fetch('/me');
-  //     const user1 = await response1.json();
-  //     setUser(user1);
-  //     setFavorites(user1.favorites);
+  useEffect(() => {
+    async function fetchData() {
+      const response1 = await fetch('/me');
+      const user1 = await response1.json();
+      setUser(user1);
+      setLoggedIn(true)
+      setFavorites(user1.restaurants);
 
-  //     const response2 = await fetch('/restaurants');
-  //     const restaurants1 = await response2.json();
-  //     setRestaurants(restaurants1);
-  //   }
-  //   fetchData();
-  // }, []);
+      const response2 = await fetch('/restaurants');
+      const restaurants1 = await response2.json();
+      setRestaurants(restaurants1);
+    }
+    fetchData();
+  }, []);
 
 // console.log(user.favorites)
 
-useEffect(() => {
-  fetch("/me")
-  .then((r) => r.json())
-  .then((data) => setUser(data));
-},[])
+// useEffect(() => {
+//   fetch("/me")
+//   .then((r) => r.json())
+//   .then((data) => setUser(data));
+//   // setFavorites(user.favorites)
+// },[])
 
-useEffect(() => {
-  fetch("/restaurants")
-  .then((r) => r.json())
-  .then((data) => setRestaurants(data));
-},[])
+// useEffect(() => {
+//   fetch("/restaurants")
+//   .then((r) => r.json())
+//   .then((data) => setRestaurants(data));
+  
+// },[])
 
 // useEffect(() => {
 //   fetch("/favorites")
@@ -56,7 +61,8 @@ useEffect(() => {
  
  console.log(favorites)
  
-
+ const searchFilter = restaurants.filter((eachRestaurant) => eachRestaurant.business_name.toLowerCase().includes(search.toLowerCase()) )
+//  eachRestaurant.cuisine.toLowerCase().includes(search.toLowerCase())); 
 
   function handleDeleteRestaurant(id) {
     const updateRestaurantArray = restaurants.filter(
@@ -77,18 +83,20 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <NavBar user={user} setUser={setUser} />
+     <NavBar user={user} setUser={setUser} /> 
       <Routes>
         <Route
           exact
           path="/"
           element={
             <Home
-              restaurants={restaurants}
+              restaurants={searchFilter}
               handleDeleteRestaurant={handleDeleteRestaurant}
               favorites={favorites}
               setFavorites={setFavorites}
               user={user}
+              search={search}
+              setSearch={setSearch}
             />
           }
         />

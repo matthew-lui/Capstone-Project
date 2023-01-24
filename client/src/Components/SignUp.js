@@ -91,7 +91,7 @@ let navigate = useNavigate();
         />
     
 
-        <button className="btn btn-primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button className="fancy-button" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
 
         {errors.map((err) => (
           <div key={err}>{err}</div>

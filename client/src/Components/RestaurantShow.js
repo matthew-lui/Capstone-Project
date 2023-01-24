@@ -11,9 +11,7 @@ function RestaurantShow({ user }) {
   const { id } = useParams();
 
   const [restaurant, setRestaurant] = useState();
-  const [posts, setPosts] = useState([]);
 
-  console.log(restaurant)
 
   useEffect(() => {
     fetch(`/restaurants/${id}`)
@@ -50,7 +48,7 @@ function updateCommentLikes(post) {
 }
 
 
-console.log(restaurant)
+console.log(setRestaurant)
 
   return (
     <div>
@@ -88,22 +86,24 @@ console.log(restaurant)
               <div>
                <br></br>
               <div className="comment-area">
-              {restaurant && restaurant.posts.map(post => 
+              {restaurant && restaurant.posts.map(post => {
+               console.log(post.user_id)
+               return(
                     <div className="comment"><p>{post.comments}</p><p>{post.likes} Comment likes</p> <p>{post.findpostuser}</p>
                     <br></br>
                   <button className='fancy-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                   <br></br>
                  {/* if a a post's user_id == current user render a delete button */}
                  {/* delete function should send the post */}
-                 <button className='fancy-button' onClick={()=>handleDelete(post.id)}>Remove Comment</button>
+                 {user.id == post.user_id ? (<button className='fancy-button' onClick={()=>handleDelete(post.id)}>Remove Comment</button>) : null}
                  <br></br>
                  <br></br>
                  <br></br>
-                </div>)}
+                </div>)})}
               </div>
               </div>
             </div>
-            <CommentForm user={user} restaurant={restaurant} setRestarant={setRestaurant}/>
+            <CommentForm user={user} restaurant={restaurant} setRestaurant={setRestaurant}/>
           </div>
           
         )}

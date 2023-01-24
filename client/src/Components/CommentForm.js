@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 function CommentForm({ user, setRestaurant, restaurant }) {
+
+  console.log(setRestaurant)
   let initialFormState = {
     comments: "",
   };
 
   const [formData, setFormData] = useState(initialFormState);
-  const { id } = useParams();
+  const{ id } = useParams();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newComment = {
+    const post = {
       user_id: user.id,
       restaurant_id: id,
       comments: formData.comments,
@@ -19,12 +21,13 @@ function CommentForm({ user, setRestaurant, restaurant }) {
     fetch(`/restaurants/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newComment),
+      body: JSON.stringify({post}),
     })
       .then((response) => response.json())
       .then((data) => {
         setFormData(initialFormState);
-        setRestaurant({ ...restaurant, posts: [...restaurant.posts, data] });
+        console.log(data)
+        setRestaurant({...restaurant, posts: [...restaurant.posts, data]  });
       });
   };
   let handleChange = (e) => {
@@ -50,7 +53,7 @@ function CommentForm({ user, setRestaurant, restaurant }) {
           type="text"
           onChange={handleChange}
         />
-        <button className="btn btn-primary" id="comment-button">
+        <button className="fancy-button" id="comment-button">
           add comment
         </button>
       </form>
