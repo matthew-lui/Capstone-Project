@@ -21,6 +21,16 @@ class UsersController < ApplicationController
       end
     
     end
+
+    def update 
+      user = User.find_by_id(params[:id])
+      if user
+          user.update
+          render json: user
+      else
+          render json: {error: 'unauthorized'}, status: :not_authorized
+      end
+  end
     
     
     private

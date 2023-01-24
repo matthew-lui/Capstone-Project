@@ -37,6 +37,9 @@ function NavBar({ user }) {
       <NavLink className="nav-link" to="/myfavorites">
         My Favorites
       </NavLink>
+      <NavLink className="nav-link" to="/profile">
+        Profile
+      </NavLink>
       </div>
      </div>
         ) : (

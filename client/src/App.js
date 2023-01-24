@@ -11,6 +11,7 @@ import RestaurantShow from "./Components/RestaurantShow";
 import NotFound from "./Components/NotFound";
 import CreateRestaurant from "./Components/CreateRestaurant";
 import FavoritesContainer from "./Components/FavoritesContainer";
+import Profile from "./Components/Profile";
 
 
 function App() {
@@ -123,6 +124,15 @@ function App() {
             <CreateRestaurant
               restaurants={restaurants}
               setRestaurants={setRestaurants}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              setUser={setUser}
               user={user}
             />
           }
