@@ -69,10 +69,10 @@ body {
   margin-block: 2rem;
   gap: 2rem;
 }
-.h5{
-  font-size: 2rem;
+/* .h5{
+  font-size: 30px;
   font-weight: bold;
-}
+} */
 
 /* img {
   max-width: 100%;
@@ -489,7 +489,10 @@ button.btn {
 }
 
 .navalink{
-  display: flex;
+  /* display: flex; */
+  /* bottom: 0; */
+  padding-top: 126px;
+  
   
   
 }

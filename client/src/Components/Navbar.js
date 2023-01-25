@@ -65,12 +65,15 @@ function NavBar({ user, loggedIn }) {
           <NavLink className="nav-link" to="/userlogin"> 
             Login
           </NavLink>
+      
           <NavLink className="nav-link" to="/signup">
             Sign Up
           </NavLink> </>}
+      
         </>
+            
       </div>
-    </div>
+    </div> 
     </div>
     
   );
