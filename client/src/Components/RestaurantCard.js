@@ -11,6 +11,7 @@ function RestaurantCard({
   favorites,
   handleDeleteRestaurant,
   user,
+  loggedIn
 }) {
  
   const [restaurantData, setRestaurantData] = useState(restaurant);
@@ -80,12 +81,12 @@ function RestaurantCard({
           add to favorites
         </button>
       </Link>
-      {/* { user.id == restaurant.user_id ? (<button
+      { loggedIn && user ? (<button
         className="fancy-button"
         onClick={() => handleDelete(restaurant.id)}
       >
         Delete
-      </button>) : null} */}
+      </button>) : null}
     </div>
   );
 }

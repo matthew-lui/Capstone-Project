@@ -97,6 +97,7 @@ function App() {
               user={user}
               search={search}
               setSearch={setSearch}
+              loggedIn={loggedIn}
             />
           }
         />

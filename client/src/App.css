@@ -170,7 +170,7 @@ header {
   font-size: 19px;
   color: white;
   width: 99%;
-  height: 150px;
+  height: 160px;
 
  
 }
@@ -193,9 +193,9 @@ header {
 /* show page image */
 
 .profile_pic {
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  border-radius: 30%;
+  height: 60px;
+  width: 60px;
 }
 
 .show-image {
@@ -400,7 +400,7 @@ button.btn {
 
 .profile-divider {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .showpage-image-container {
@@ -477,8 +477,8 @@ button.btn {
 }
 
 .matt-book{
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   object-fit: contain;
   display: flex;
 }
@@ -486,4 +486,10 @@ button.btn {
 .mattbooklogo{
   display: flex;
   display: baseline;
+}
+
+.navalink{
+  display: flex;
+  
+  
 }

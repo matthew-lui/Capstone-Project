@@ -29,7 +29,7 @@ function NavBar({ user, loggedIn }) {
               alt={user.username}
             />
           <div className="profile_containers">
-            <h4 className="profile_greeting">Welcome! {user.username}</h4>
+            <h4 className="profile_greeting">Hi {user.username}!  </h4>
             </div>
             <div>
       <NavLink className="nav-link" to="/create-restaurant">
@@ -47,13 +47,11 @@ function NavBar({ user, loggedIn }) {
      </div>
         ) : (
           <div><>
-          
-          
           </></div>
         )}
       </div>
-       <div>
         <img className="matt-book" src={MattBook}/>
+       <div className="navalink">
         <NavLink className="nav-link" to="/">
           Home
         </NavLink>
