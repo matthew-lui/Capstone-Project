@@ -25,7 +25,7 @@ function UserLogin({ onLogin, setLoggedIn }) {
       if (r.ok) {
         r.json().then((user) => onLogin(user),
         navigate("/"));
-        setLoggedIn(true)
+        // setLoggedIn(true)
       } else {
         r.json().then((err) =>{
           console.log(err);

@@ -171,6 +171,7 @@ header {
   color: white;
   width: 99%;
   height: 150px;
+
  
 }
 .nav-link {
@@ -447,6 +448,8 @@ button.btn {
   justify-content: space-evenly;
   font-size: 23px;
   font-family: "Georgia";
+  /* font-weight: bold; */
+  font-style: italic;
   
 }
 
@@ -471,4 +474,16 @@ button.btn {
   height: 85px;
   object-fit: contain;
   bottom: 12px;
+}
+
+.matt-book{
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  display: flex;
+}
+
+.mattbooklogo{
+  display: flex;
+  display: baseline;
 }

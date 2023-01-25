@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import MattBook from "./MattBook.png";
 // import { useState } from 'react';
 
 function NavBar({ user, loggedIn }) {
@@ -14,20 +15,20 @@ function NavBar({ user, loggedIn }) {
   //   };
   //   checkLoggedIn();
   // }, []);
-
-  return (
   
-      <div className="profile">
+  return (
+    
+    <div className="profile">
     <div className="nav">
       <div>
         {loggedIn && user ? (
           <div className="profile-divider">
-          <div className="profile_containers">
             <img
               className="profile_pic"
               src={user.profile_pic}
               alt={user.username}
             />
+          <div className="profile_containers">
             <h4 className="profile_greeting">Welcome! {user.username}</h4>
             </div>
             <div>
@@ -41,12 +42,18 @@ function NavBar({ user, loggedIn }) {
         Profile
       </NavLink>
       </div>
+      <div className="mattbooklogo">
+      </div>
      </div>
         ) : (
-          <div></div>
+          <div><>
+          
+          
+          </></div>
         )}
       </div>
        <div>
+        <img className="matt-book" src={MattBook}/>
         <NavLink className="nav-link" to="/">
           Home
         </NavLink>

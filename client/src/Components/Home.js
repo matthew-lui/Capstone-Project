@@ -10,7 +10,7 @@ function Home({restaurants, handleDeleteRestaurant, favorites, setFavorites, sea
         <div>
             <Search search={search} setSearch={setSearch}/>
             <div className="home-text">    
-             <p>Discover New Restaurants </p>
+             <p>Discover New Restaurants</p>
              <img className="painintheass" src={discover}/>
              <p>Recommend Restaurants</p>
              <img className="homeicon" src={recommend}/>
