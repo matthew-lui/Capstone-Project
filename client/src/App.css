@@ -486,12 +486,14 @@ button.btn {
 .mattbooklogo{
   display: flex;
   display: baseline;
+  padding-right: 
 }
 
 .navalink{
   /* display: flex; */
   /* bottom: 0; */
   padding-top: 126px;
+  padding-left: 100px
   
   
   
