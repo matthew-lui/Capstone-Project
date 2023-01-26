@@ -89,7 +89,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 790px;
+  height: 830px;
   width: clamp(20rem, calc(20rem + 2vw), 22rem);
   /* overflow-y: scroll; */
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
@@ -170,7 +170,7 @@ header {
   font-size: 19px;
   color: white;
   width: 99%;
-  height: 160px;
+  height: 170px;
 
  
 }
@@ -477,8 +477,8 @@ button.btn {
 }
 
 .matt-book{
-  width: 250px;
-  height: 250px;
+  width: 370px;
+  height: 370px;
   object-fit: contain;
   display: flex;
 }
@@ -486,14 +486,14 @@ button.btn {
 .mattbooklogo{
   display: flex;
   display: baseline;
-  padding-right: 
+ 
 }
 
 .navalink{
   /* display: flex; */
   /* bottom: 0; */
-  padding-top: 126px;
-  padding-left: 100px
+  padding-top: 130px;
+  padding-left: 150px
   
   
   

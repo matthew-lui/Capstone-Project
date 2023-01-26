@@ -81,12 +81,12 @@ function RestaurantCard({
           add to favorites
         </button>
       </Link>
-      { loggedIn && user ? (<button
+      <button
         className="fancy-button"
         onClick={() => handleDelete(restaurant.id)}
       >
-        Delete
-      </button>) : null}
+        Remove
+      </button>
     </div>
   );
 }

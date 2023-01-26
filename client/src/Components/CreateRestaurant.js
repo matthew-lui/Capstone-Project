@@ -24,6 +24,8 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
     phone_number: "",
     website: "",
     image_url: "",
+    price: "",
+    cuisine: "",
   };
   const [formData, setFormData] = useState(initialFormState);
   const { id } = useParams();
@@ -36,6 +38,8 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
       phone_number: formData.phone_number,
       website: formData.website,
       image_url: formData.image_url,
+      price: formData.price,
+      cuisine: formData.cuisine,
     };
     fetch("/restaurants", {
       method: "POST",
@@ -111,8 +115,24 @@ function CreateRestaurant({ restaurants, setRestaurants, user }) {
             />
             <input
               className="input-field"
+              value={formData.price}
+              placeholder="cost in $"
+              name="price"
+              type="text"
+              onChange={handleChange}
+            />
+             <input
+              className="input-field"
+              value={formData.cuisine}
+              placeholder="cuisine"
+              name="cuisine"
+              type="text"
+              onChange={handleChange}
+            />
+            <input
+              className="input-field"
               value={formData.image_url}
-              placeholder="Image url"
+              placeholder="image-url"
               name="image_url"
               type="text"
               onChange={handleChange}
