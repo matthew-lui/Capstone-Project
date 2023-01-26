@@ -54,7 +54,7 @@ r28= Restaurant.create(business_name:"All Antico", address: "225 Sullivan Street
 puts "Restaurants seeded!"
 puts "Seeding posts..."
 
-40.times do
+140.times do
     Post.create(
         comments: Faker::Restaurant.review, 
         user_id: User.all.sample.id,
