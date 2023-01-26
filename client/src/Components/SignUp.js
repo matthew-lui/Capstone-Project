@@ -6,6 +6,7 @@ function SignUp({onSignUp, setLoggedIn}) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [profile_pic, setProfilePic] = useState("");
+  const [email, setEmail] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 // console.log(errors)
@@ -31,8 +32,8 @@ let navigate = useNavigate();
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onSignUp(user),
-        navigate('/'));
-        setLoggedIn(false)
+        navigate('/userlogin'));
+        setLoggedIn(true)
       } else {
         r.json().then((err) => {
           console.log(err)
@@ -81,6 +82,16 @@ let navigate = useNavigate();
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
+        <label htmlFor="user-email">E-mail</label>
+        <input
+          className="input-field"
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoComplete="current-password"
+        />
+        
     
         <label htmlFor="profile_pic">Profile Picture URL</label>
         <input

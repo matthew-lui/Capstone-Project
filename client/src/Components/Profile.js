@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 
 
 
-function Profile({user, setUser}) {
-    const [updatedEmail, setUpdatedEmail] = useState(user.email)
+function Profile({user, setUser, loggedIn}) {
+    const [updatedEmail, setUpdatedEmail] = useState(loggedIn.email)
     const [showModal, setShowModal] = useState(false);
     const handleSubmit = (e) =>{
     e.preventDefault()
@@ -36,8 +36,8 @@ function Profile({user, setUser}) {
         <><div className="profile-page-container">
             <div>
           <div className='profile-page'>
-            <h1>Welcome {user.username}</h1>
-            <p>Email: {user.email}</p>
+            <h1>Welcome {loggedIn.username}</h1>
+            <p>Email: {loggedIn.email}</p>
             <button className="fancy-button"onClick={() => setShowModal(true)}>Update Email</button>
           </div>
           <Modal className='modal'

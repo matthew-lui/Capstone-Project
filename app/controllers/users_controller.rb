@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :show, ]
+    skip_before_action :authorize, only: [:create, :show, :update ]
     
     def create
       user = User.create(user_params)
@@ -22,13 +22,16 @@ class UsersController < ApplicationController
     
     end
 
-    def update 
+    def update
       user = User.find_by_id(params[:id])
       if user
-          user.update
-          render json: user
+          if user.update!(user_params)
+              render json: user, status: :accepted
+          else 
+              render json: user.errors, status: :unprocessable_entity
+          end
       else
-          render json: {error: 'unauthorized'}, status: :not_authorized
+          render json: {error: "user not found"}
       end
   end
     

@@ -24,8 +24,11 @@ function UserLogin({ onLogin, setLoggedIn }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user),
-        navigate("/"));
-        // setLoggedIn(true)
+        navigate("/userlogin"));
+        navigate("/");
+        navigate("/");
+        setLoggedIn(true)
+        navigate("/");
       } else {
         r.json().then((err) =>{
           console.log(err);

@@ -38,9 +38,9 @@ function NavBar({ user, loggedIn }) {
       <NavLink className="nav-link" to="/myfavorites">
         My Favorites
       </NavLink>
-      <NavLink className="nav-link" to="/profile">
+      {/* <NavLink className="nav-link" to="/profile">
         Profile
-      </NavLink>
+      </NavLink> */}
       </div>
       <div className="mattbooklogo">
       </div>
