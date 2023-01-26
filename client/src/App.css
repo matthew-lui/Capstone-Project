@@ -55,7 +55,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background: rgb(229, 236, 239); 
+  background: rgb(192, 204, 208); 
   /* background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5) */
   /* background-image: linear-gradient(to bottom, #e6f6f6, #daeff2, #cee7f0, #c5dfed, #bfd6eb, #b4d1e9, #a9cbe6, #9dc6e4, #83c3de, #68c0d4, #50bdc4, #40b8b0);
   background-position: stretch; */
@@ -193,9 +193,9 @@ header {
 /* show page image */
 
 .profile_pic {
-  border-radius: 30%;
-  height: 60px;
-  width: 60px;
+  border-radius: 10%;
+  height: 65px;
+  width: 65px;
 }
 
 .show-image {
@@ -408,12 +408,14 @@ button.btn {
   flex-direction: column;
   align-items: center;
   font-size: 23px;
+  color: black;
 }
 
 .comment-area {
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  border-color: black;
 }
 
 .comment {
@@ -496,5 +498,13 @@ button.btn {
   padding-left: 150px
   
   
-  
+}
+
+.stat-button{
+  color: black;
+}
+
+.comment-diva{
+  border-color: black;
+  display: flex;
 }

@@ -82,13 +82,13 @@ console.log(setRestaurant)
                   Restaurant Website
                 </a>
               </div>
-              <div>
+              <div className="comment-diva">
                <br></br>
               <div className="comment-area">
               {restaurant && restaurant.posts.map(post => {
                console.log(post.user_id)
                return(
-                    <div className="comment"><p>{post.comments}</p><p>{post.likes}👍 </p> <p>{post.findpostuser}</p>
+                    <div className="comment"><p>{post.comments}</p><p>{post.likes}👍 </p> <p>{post.findpostuser.toUpperCase()}</p>
                     <br></br>
                   <button className='fancy-button' onClick={()=>updateCommentLikes(post)}>LIKE</button>
                   <br></br>
